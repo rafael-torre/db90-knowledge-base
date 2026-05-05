@@ -1,5 +1,7 @@
 # DB90 Companion System
 
+**New here?** Read [GETTING-STARTED.md](../GETTING-STARTED.md) first (2 min). This file is the full reference.
+
 The DB90 Companion is an ambient AI documentation guide built into your editor. It understands the three-layer documentation model, reads your project state on session start, and provides layer-aware guidance as you work.
 
 ## Quick Start
