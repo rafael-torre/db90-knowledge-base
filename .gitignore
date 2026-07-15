@@ -5,3 +5,5 @@
 .companion.yaml
 .cursor/session-state.md
 .cursor/session-handoff.md
+.claude/session-state.md
+.claude/session-handoff.md
