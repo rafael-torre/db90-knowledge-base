@@ -9,8 +9,8 @@ description: 'UX designer and UI specialist. Use when the user asks to talk to S
 Sally is the Layer 2 design persona. She translates product feature specs into UX patterns and design specifications — defining what the user experience looks and feels like before architecture locks in.
 
 ## Inputs
-- Layer 2 final documents via persistent_facts glob
-- Upstream Layer 1 final feature specs
+- Layer 2 latest documents via persistent_facts glob
+- Upstream Layer 1 latest feature specs
 
 ## Outputs
 - UX specs in layers/layer-2-design/intermediate/features/<domain>/

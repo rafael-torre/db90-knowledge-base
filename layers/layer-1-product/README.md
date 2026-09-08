@@ -12,11 +12,11 @@ Define the problem space, the users, and what we're building. This layer is wher
 
 ## Pipeline
 
-Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into final documents. The final documents are the source of truth for this layer.
+Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into latest documents. The latest documents are the source of truth for this layer.
 
 ```mermaid
 flowchart LR
-    subgraph upstream [Layer 0 Finals]
+    subgraph upstream [Layer 0 Latest]
         U1[Business Overview]
         U2[Strategic Goals\nand Constraints]
         U3[Stakeholder Map]
@@ -38,7 +38,7 @@ flowchart LR
         I4[Gap Analysis]
     end
 
-    subgraph final [Final Documents]
+    subgraph latest [Latest Documents]
         F1[Product Brief]
         F2[User Personas]
         F3[Feature Specs]
@@ -49,34 +49,34 @@ flowchart LR
 
     upstream --> intermediate
     raw --> intermediate
-    intermediate --> final
-    final -->|"feeds into"| Layer2[Layer 2: Design]
-    final -->|"feeds into"| Layer3[Layer 3: Architecture]
+    intermediate --> latest
+    latest -->|"feeds into"| Layer2[Layer 2: Design]
+    latest -->|"feeds into"| Layer3[Layer 3: Architecture]
 ```
 
 ### Raw Inputs
 
-Materials gathered, not authored. Includes all Layer 0 final documents as primary upstream inputs. See [raw-inputs/README.md](raw-inputs/README.md) for the full collection checklist.
+Materials gathered, not authored. Includes all Layer 0 latest documents as primary upstream inputs. See [raw-inputs/README.md](raw-inputs/README.md) for the full collection checklist.
 
 ### Intermediate Artifacts
 
-Synthesis products that bridge raw inputs to final documents. These are working documents — iterative, living, and potentially messy. How you get from raw inputs to final documents will vary by project; the `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
+Synthesis products that bridge raw inputs to latest documents. These are working documents — iterative, living, and potentially messy. How you get from raw inputs to latest documents will vary by project; the `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
 
 Examples include ideation outputs, problem statements, solution explorations, and gap analyses. See [intermediate/](intermediate/) for available templates.
 
-### Final Documents
+### Latest Documents
 
 Canonical, reviewed, consumable. These are the source of truth for this layer. Each carries full YAML frontmatter for cascade tracking.
 
 
 | Document | What It Covers | Structure |
 |---|---|---|
-| [Product Brief](final/product-brief.md) | Problem space, target users, product vision, scope, assumptions, relationship to business goals | Single file |
-| [User Personas](final/user-personas.md) | Who the product serves — distinct user types, goals, pain points, behaviors | Single file |
-| [Domain Glossary](final/domain-glossary.md) | Shared vocabulary — domain-specific terms, acronyms, and definitions used across all layers | Single file |
-| [Success Metrics](final/success-metrics.md) | Product-level KPIs, measurement approach, baselines and targets | Single file |
-| [User Journeys](final/user-journeys/) | Cross-feature views of how users accomplish goals through the product | One file per journey |
-| [Feature Specs](final/features/) | Product behavior defined per feature — business rules, acceptance criteria, edge cases, scope | One file per feature, organized by domain |
+| [Product Brief](latest/product-brief.md) | Problem space, target users, product vision, scope, assumptions, relationship to business goals | Single file |
+| [User Personas](latest/user-personas.md) | Who the product serves — distinct user types, goals, pain points, behaviors | Single file |
+| [Domain Glossary](latest/domain-glossary.md) | Shared vocabulary — domain-specific terms, acronyms, and definitions used across all layers | Single file |
+| [Success Metrics](latest/success-metrics.md) | Product-level KPIs, measurement approach, baselines and targets | Single file |
+| [User Journeys](latest/user-journeys/) | Cross-feature views of how users accomplish goals through the product | One file per journey |
+| [Feature Specs](latest/features/) | Product behavior defined per feature — business rules, acceptance criteria, edge cases, scope | One file per feature, organized by domain |
 
 
 ---
@@ -89,9 +89,9 @@ The `tools/` folder contains AI skills and process guides that accelerate produc
 
 ## Inheritance
 
-**Upstream:** All four final documents from Layer 0 (Business) are explicit inputs to this layer. They provide the business context — client goals, constraints, stakeholder dynamics, competitive landscape — that shapes every product decision. Layer 1 documents list the relevant Layer 0 files in their `relates_to` frontmatter.
+**Upstream:** All four latest documents from Layer 0 (Business) are explicit inputs to this layer. They provide the business context — client goals, constraints, stakeholder dynamics, competitive landscape — that shapes every product decision. Layer 1 documents list the relevant Layer 0 files in their `relates_to` frontmatter.
 
-**Downstream:** This layer's final documents are the primary inputs to Layer 2 (Design) and Layer 3 (Architecture). Feature specs feed directly into design work and technical architecture. The product brief, user personas, domain glossary, and success metrics provide shared context across both downstream layers. The cascade mechanism tracks when Layer 1 documents change and flags downstream documents for review.
+**Downstream:** This layer's latest documents are the primary inputs to Layer 2 (Design) and Layer 3 (Architecture). Feature specs feed directly into design work and technical architecture. The product brief, user personas, domain glossary, and success metrics provide shared context across both downstream layers. The cascade mechanism tracks when Layer 1 documents change and flags downstream documents for review.
 
 ---
 

@@ -12,11 +12,11 @@ Define the user experience — what people interact with, how it behaves, how it
 
 ## Pipeline
 
-Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into final documents. The final documents are the source of truth for this layer.
+Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into latest documents. The latest documents are the source of truth for this layer.
 
 ```mermaid
 flowchart LR
-    subgraph upstream [Layer 1 Finals]
+    subgraph upstream [Layer 1 Latest]
         U1[Product Brief]
         U2[Feature Specs]
         U3[User Personas]
@@ -36,37 +36,37 @@ flowchart LR
         I2[Usability Findings]
     end
 
-    subgraph final [Final Documents]
+    subgraph latest [Latest Documents]
         D1[Design System\nReference]
         D2[Feature Design\nSpecs]
     end
 
     upstream --> intermediate
     figma --> intermediate
-    intermediate --> final
-    final -->|"feeds into"| Layer3[Layer 3: Architecture]
-    final -->|"feeds into"| Layer4[Layer 4: Implementation]
+    intermediate --> latest
+    latest -->|"feeds into"| Layer3[Layer 3: Architecture]
+    latest -->|"feeds into"| Layer4[Layer 4: Implementation]
 ```
 
 ### Raw Inputs
 
-Materials gathered, not authored. Includes all Layer 1 final documents as primary upstream inputs, plus Figma files and client-provided design assets. See [raw-inputs/README.md](raw-inputs/README.md) for the full collection checklist.
+Materials gathered, not authored. Includes all Layer 1 latest documents as primary upstream inputs, plus Figma files and client-provided design assets. See [raw-inputs/README.md](raw-inputs/README.md) for the full collection checklist.
 
 ### Intermediate Artifacts
 
-Synthesis products that bridge raw inputs to final documents. These are working documents — iterative, living, and potentially messy. How you get from raw inputs to final documents will vary by project; the `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
+Synthesis products that bridge raw inputs to latest documents. These are working documents — iterative, living, and potentially messy. How you get from raw inputs to latest documents will vary by project; the `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
 
 Examples include design explorations (capturing direction decisions and trade-offs before the final design exists) and usability findings (synthesizing test results into actionable changes). See [intermediate/](intermediate/) for available templates.
 
-### Final Documents
+### Latest Documents
 
 Canonical, reviewed, consumable. These are the source of truth for this layer. Each carries full YAML frontmatter for cascade tracking.
 
 
 | Document | Scope | What It Covers |
 |---|---|---|
-| [Design System Reference](final/design-system-reference.md) | One per project | Figma library, design variables, naming conventions, component usage rules, pattern decisions, accessibility standards |
-| [Feature Design Specs](final/features/) | One per feature (mirrors Layer 1 structure) | Design assets (Figma links), states and behavior, interactions and motion, responsive behavior, content specifications, accessibility |
+| [Design System Reference](latest/design-system-reference.md) | One per project | Figma library, design variables, naming conventions, component usage rules, pattern decisions, accessibility standards |
+| [Feature Design Specs](latest/features/) | One per feature (mirrors Layer 1 structure) | Design assets (Figma links), states and behavior, interactions and motion, responsive behavior, content specifications, accessibility |
 
 
 ---
@@ -79,9 +79,9 @@ The `tools/` folder contains AI skills and process guides that accelerate produc
 
 ## Inheritance
 
-**Upstream:** All final documents from Layer 1 (Product) are explicit inputs to this layer. They provide the product context — feature behavior, user personas, journeys, and success criteria — that shapes every design decision. Layer 2 documents list the relevant Layer 1 files in their `relates_to` frontmatter. Layer 2 does not depend directly on Layer 0 — any business context relevant to design is already synthesized into Layer 1's documents.
+**Upstream:** All latest documents from Layer 1 (Product) are explicit inputs to this layer. They provide the product context — feature behavior, user personas, journeys, and success criteria — that shapes every design decision. Layer 2 documents list the relevant Layer 1 files in their `relates_to` frontmatter. Layer 2 does not depend directly on Layer 0 — any business context relevant to design is already synthesized into Layer 1's documents.
 
-**Downstream:** This layer's final documents are inputs to Layer 3 (Architecture) and Layer 4 (Implementation). Feature design specs and the design system reference together give engineers the complete picture of what to build — Layer 1 defines what it does and why, Layer 2 defines how it looks and behaves. The cascade mechanism tracks when Layer 2 documents change and flags downstream documents for review.
+**Downstream:** This layer's latest documents are inputs to Layer 3 (Architecture) and Layer 4 (Implementation). Feature design specs and the design system reference together give engineers the complete picture of what to build — Layer 1 defines what it does and why, Layer 2 defines how it looks and behaves. The cascade mechanism tracks when Layer 2 documents change and flags downstream documents for review.
 
 ---
 

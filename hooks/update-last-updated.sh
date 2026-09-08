@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Pre-commit hook: updates `last_updated` in YAML frontmatter of final documents.
+# Pre-commit hook: updates `last_updated` in YAML frontmatter of latest documents.
 #
-# Detects staged final documents (**/final/**/*.md) with YAML frontmatter,
+# Detects staged latest documents (**/latest/**/*.md) with YAML frontmatter,
 # sets `last_updated` to today's date, and re-stages the file.
 #
 # Installation (pick one):
@@ -26,7 +26,7 @@
 #     - repo: local
 #       hooks:
 #         - id: update-last-updated
-#           name: Update last_updated in final docs
+#           name: Update last_updated in latest docs
 #           entry: bash hooks/update-last-updated.sh
 #           language: system
 #           pass_filenames: false
@@ -42,7 +42,7 @@ STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
 
 for file in $STAGED_FILES; do
   case "$file" in
-    */final/*.md | */final/**/*.md)
+    */latest/*.md | */latest/**/*.md)
       ;;
     *)
       continue

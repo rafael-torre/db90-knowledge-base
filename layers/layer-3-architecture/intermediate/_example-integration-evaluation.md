@@ -7,7 +7,7 @@ last_updated: ""
 
 A structured comparison of options for a third-party service, library, or integration approach. Use this when the choice between options has meaningful trade-offs that affect architecture, cost, or long-term maintainability.
 
-The output of this evaluation feeds directly into the [Tech Stack Rationale](../final/tech-stack-rationale.md) and, if the decision is architecturally significant, into an [ADR](../final/adrs/).
+The output of this evaluation feeds directly into the [Tech Stack Rationale](../latest/tech-stack-rationale.md) and, if the decision is architecturally significant, into an [ADR](../latest/adrs/).
 
 ---
 

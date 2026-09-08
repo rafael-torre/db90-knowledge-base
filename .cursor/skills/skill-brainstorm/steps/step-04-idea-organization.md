@@ -12,7 +12,7 @@
 ## EXECUTION PROTOCOLS:
 
 - 🎯 Systematically organize all ideas from technique execution
-- ⚠️ Present [C] complete option after final documentation
+- ⚠️ Present [C] complete option after latest documentation
 - 💾 Create comprehensive session output document
 - 📖 Update frontmatter with final session outcomes
 - 🚫 FORBIDDEN workflow completion without action planning

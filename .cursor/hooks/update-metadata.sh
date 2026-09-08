@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # update-metadata.sh
-# Fires on afterFileEdit, scoped to layers/**/final/**/*.md
+# Fires on afterFileEdit, scoped to layers/**/latest/**/*.md
 # Auto-updates last_updated to today's date and cascades needs_review to downstream docs.
 
 set -euo pipefail
@@ -10,8 +10,8 @@ EDITED_FILE="$1"
 REPO_ROOT="${2:-.}"
 TODAY=$(date +%Y-%m-%d)
 
-# Only operate on final/ docs
-if [[ ! "$EDITED_FILE" =~ /final/ ]]; then
+# Only operate on latest/ docs
+if [[ ! "$EDITED_FILE" =~ /latest/ ]]; then
     exit 0
 fi
 

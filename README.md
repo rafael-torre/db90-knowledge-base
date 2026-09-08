@@ -24,9 +24,9 @@ This framework exists to solve three problems that compound across projects:
 
 Documentation is organized into **five layers**, each owned by a specific role and serving a distinct purpose. Each layer inherits from the layers above it — business context informs product decisions, product decisions inform design, design and product inform architecture, and architecture informs implementation.
 
-Every layer follows the same **refinement pipeline**: raw inputs (gathered, not authored) are synthesized into intermediate artifacts (working documents), which are refined into final documents (the source of truth). Contradictions and ambiguity in raw inputs get resolved during synthesis — the final document reflects the resolved state.
+Every layer follows the same **refinement pipeline**: raw inputs (gathered, not authored) are synthesized into intermediate artifacts (working documents), which are refined into latest documents (the source of truth). Contradictions and ambiguity in raw inputs get resolved during synthesis — the latest document reflects the resolved state.
 
-**Final documents are the source of truth.** Raw inputs like meeting transcripts, client emails, and interview notes inform the process but are never canonical. When two raw inputs contradict each other, the resolution is what gets documented in the final document. This means the PM owns resolving ambiguity at the product level, the Tech Lead owns it at the architecture level, and so on — decision-making authority follows layer ownership.
+**Latest documents are the source of truth.** Raw inputs like meeting transcripts, client emails, and interview notes inform the process but are never canonical. When two raw inputs contradict each other, the resolution is what gets documented in the latest document. This means the PM owns resolving ambiguity at the product level, the Tech Lead owns it at the architecture level, and so on — decision-making authority follows layer ownership.
 
 ### The Layers
 
@@ -55,7 +55,7 @@ Each layer has its own folder under `layers/` with templates, examples, and guid
 
 ### Cross-Layer Inheritance
 
-The final documents of Layer N are explicit inputs to Layer N+1. This is not implicit — each layer's templates name the upstream documents they depend on, and each document's YAML frontmatter lists its relationships via `relates_to`. This creates a traceable chain from business context to running code.
+The latest documents of Layer N are explicit inputs to Layer N+1. This is not implicit — each layer's templates name the upstream documents they depend on, and each document's YAML frontmatter lists its relationships via `relates_to`. This creates a traceable chain from business context to running code.
 
 When an upstream document changes, the owner is responsible for notifying downstream owners so they can review their own documents. The `relates_to` metadata makes these dependencies visible — without it, drift is invisible.
 
@@ -71,7 +71,7 @@ Layer 0 (Business) is scoped per client engagement and can feed multiple project
 
 ## Document Metadata
 
-Every final document carries YAML frontmatter. This metadata makes ownership, dependencies, and freshness visible across the project.
+Every latest document carries YAML frontmatter. This metadata makes ownership, dependencies, and freshness visible across the project.
 
 ```yaml
 ---
@@ -92,8 +92,8 @@ status: established
 | `title`        | Human-readable document title                                                                                                               |
 | `layer`        | One of: `business`, `product`, `design`, `architecture`, `implementation`                                                                   |
 | `owner`        | GitHub handle of the person accountable for this document                                                                                   |
-| `last_updated` | Date of last substantive content update — not formatting or typo fixes. Auto-updated by a pre-commit hook when a final document is modified |
-| `relates_to`   | Paths to related **final documents only** — not raw inputs or intermediate artifacts                                                        |
+| `last_updated` | Date of last substantive content update — not formatting or typo fixes. Auto-updated by a pre-commit hook when a latest document is modified |
+| `relates_to`   | Paths to related **latest documents only** — not raw inputs or intermediate artifacts                                                        |
 | `status`       | One of: `established`, `in_progress`, `needs_update`                                                                                        |
 
 
@@ -107,7 +107,7 @@ Documentation drifts in two directions. The framework addresses both through own
 
 A business or product decision changes, and downstream layers don't reflect it. The person making the change knows it happened — the process is human-driven.
 
-**What to do:** When you update a final document, check which documents list yours in their `relates_to`. Notify those owners that something changed. If the change is significant, open a GitHub issue tagging downstream owners. The downstream owner reviews their document and either updates it, confirms no change is needed (updating `last_updated` to re-validate), or marks it `needs_update` if they can't address it immediately.
+**What to do:** When you update a latest document, check which documents list yours in their `relates_to`. Notify those owners that something changed. If the change is significant, open a GitHub issue tagging downstream owners. The downstream owner reviews their document and either updates it, confirms no change is needed (updating `last_updated` to re-validate), or marks it `needs_update` if they can't address it immediately.
 
 ### Bottom-Up Drift
 
@@ -123,8 +123,8 @@ Code changes make technical documentation outdated. A developer refactors an aut
 
 Follow the layers in order. Not every layer needs to be complete before the next one starts, but the upstream layer should be established enough to inform downstream work.
 
-1. **Layer 0 — Business.** During client onboarding, gather raw inputs and produce the four final documents. This only happens once per client engagement — if the client already has a Layer 0 from a previous project, reuse it.
-2. **Layer 1 — Product.** During product definition, use Layer 0 finals as inputs. Start with the Product Brief, then build feature specs as the product takes shape.
+1. **Layer 0 — Business.** During client onboarding, gather raw inputs and produce the four latest documents. This only happens once per client engagement — if the client already has a Layer 0 from a previous project, reuse it.
+2. **Layer 1 — Product.** During product definition, use Layer 0 latest documents as inputs. Start with the Product Brief, then build feature specs as the product takes shape.
 3. **Layer 2 — Design.** After feature specs are established and design work begins. Skip this layer for API-only or backend-only projects.
 4. **Layer 3 — Architecture.** After product scope is clear. Start with the Architecture Overview, then add feature technical specs as features move into architecture.
 5. **Layer 4 — Implementation.** Once the team has begun building and conventions are clear enough to document. Start with the Development Guide (mandatory). Add Deployment and Monitoring docs as the project matures.
@@ -138,16 +138,16 @@ Check the project's documentation folder to understand what exists and what stat
 | ---------------- | -------------------------------------------------------------------- |
 | **N/A**          | This layer does not apply to this project                            |
 | **Not started**  | Layer applies but no documentation exists yet                        |
-| **In progress**  | Raw inputs gathered, synthesis underway, final docs not yet complete |
-| **Established**  | Final documents exist and are current                                |
-| **Needs update** | Final documents exist but are known to be outdated                   |
+| **In progress**  | Raw inputs gathered, synthesis underway, latest docs not yet complete |
+| **Established**  | Latest documents exist and are current                                |
+| **Needs update** | Latest documents exist but are known to be outdated                   |
 
 
 Read the established layers top-down to build context: business first, then product, then design (when applicable), then architecture. This gives you the same understanding a team member who was there from the start would have — without needing their time.
 
 ### Day-to-Day
 
-**When you update a final document:**
+**When you update a latest document:**
 
 1. Update the content, set `status` to `established`, and update `last_updated` to today's date.
 2. Check if any other document lists yours in its `relates_to`. If so, notify that owner.
@@ -173,7 +173,7 @@ Every layer has an **owner** — the person accountable for the layer's document
 
 **Owns:** Layers 0 and 1.
 
-Layer 0 is created once per client during onboarding — it captures who the client is and what drives their business. Layer 1 is where you define what we're building and why. Your final documents (especially feature specs, the product brief, and the domain glossary) are the primary input for every downstream layer.
+Layer 0 is created once per client during onboarding — it captures who the client is and what drives their business. Layer 1 is where you define what we're building and why. Your latest documents (especially feature specs, the product brief, and the domain glossary) are the primary input for every downstream layer.
 
 Your key responsibility in the cascade: when product decisions change, you assess downstream impact and notify the Tech Lead and Designer (if applicable).
 
@@ -185,7 +185,7 @@ Start with: [Layer 0 README](layers/layer-0-business/) → [Layer 1 README](laye
 
 **Owns:** Layer 2.
 
-Your inputs come from Layer 1 final documents — feature specs, user personas, and user journeys define what you're designing for. Your outputs (feature design specs and the design system reference) feed into architecture and implementation.
+Your inputs come from Layer 1 latest documents — feature specs, user personas, and user journeys define what you're designing for. Your outputs (feature design specs and the design system reference) feed into architecture and implementation.
 
 This layer is N/A for API-only, data pipeline, or backend-only projects. When it applies, your documents are a thin complement to Figma — they capture what can't be inferred from the design file itself (states, behavior, responsive rules, accessibility requirements).
 
@@ -213,7 +213,7 @@ In Layer 4, the Development Guide is the one mandatory document — it captures 
 
 When your code changes affect documented behavior (architecture, deployment process, conventions), update the related docs in the same PR or open a follow-up issue.
 
-Layer 4 is the terminal layer — there is nothing downstream. The Development Guide, Deployment Guide, and Monitoring & Observability document are the final artifacts of the framework.
+Layer 4 is the terminal layer — there is nothing downstream. The Development Guide, Deployment Guide, and Monitoring & Observability document are the latest artifacts of the framework.
 
 **Common contributions to other layers:** Engineers frequently draft feature technical specs (Layer 3), write ADRs for decisions they drove, and contribute domain knowledge to feature specs (Layer 1) when they understand the problem space deeply.
 
@@ -250,7 +250,7 @@ Decisions happen at every layer. The format differs but the mechanism is the sam
 | Implementation | PR descriptions, code review resolutions, post-mortems       |
 
 
-Architecture Decision Records (ADRs) are the most structured form and are used for significant technical decisions. See [ADR guidance](layers/layer-3-architecture/final/adrs/) for when and how to write them.
+Architecture Decision Records (ADRs) are the most structured form and are used for significant technical decisions. See [ADR guidance](layers/layer-3-architecture/latest/adrs/) for when and how to write them.
 
 ---
 
@@ -266,11 +266,11 @@ Business (L0) → Product (L1) → Design (L2) → Architecture (L3) → Impleme
 
 ### Refinement Pipeline
 
-Every layer: **Raw inputs** (gathered) → **Intermediate artifacts** (synthesized) → **Final documents** (source of truth).
+Every layer: **Raw inputs** (gathered) → **Intermediate artifacts** (synthesized) → **Latest documents** (source of truth).
 
 ### Cascade Rules
 
-1. When you update a final document, check `relates_to` references and notify downstream owners.
+1. When you update a latest document, check `relates_to` references and notify downstream owners.
 2. When you change code that affects documented behavior, check and update related docs.
 3. When notified of an upstream change, review your documents — update, re-validate, or mark `needs_update`.
 

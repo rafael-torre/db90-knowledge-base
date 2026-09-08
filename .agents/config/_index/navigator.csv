@@ -11,7 +11,7 @@ DB90,skill-create-architecture,Create Architecture,CA,Guided workflow to documen
 DB90,skill-mermaid-diagram,Mermaid Diagram,MD,Create readable architecture diagrams split into focused views based on system complexity.,,,layer-3-architecture,,,false,layers/layer-3-architecture/intermediate,system overview diagram
 DB90,skill-readiness-check,Readiness Check,IR,Ensure product spec UX Architecture are aligned before implementation.,,,layer-3-architecture,skill-create-architecture,,true,layers/layer-3-architecture/intermediate,readiness report
 DB90,skill-generate-tickets,Generate Tickets,GT,Generate tickets from Layer 3 technical spec and create them on the configured board.,,,layer-4-implementation,skill-readiness-check,,true,layers/layer-4-implementation/intermediate,ticket references
-DB90,skill-promote-to-final,Promote to Final,PF,Validate and promote an intermediate document to final/ with correct frontmatter.,,,all,,,false,final/,promoted document
+DB90,skill-promote-to-latest,Promote to Latest,PF,Validate and promote an intermediate document to latest/ with correct frontmatter.,,,all,,,false,latest/,promoted document
 DB90,skill-correct-course,Correct Course,CC,Analyze misalignment and propose corrective steps.,,,all,,,false,layers/,correction plan
 DB90,skill-elicitation,Elicitation,EL,Push the LLM to reconsider refine and improve its recent output.,,,all,,,false,,refined output
 DB90,skill-review-prose,Review Prose,RP,Clinical copy-editor that reviews text for communication issues.,,,all,,,false,,prose findings

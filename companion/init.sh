@@ -262,7 +262,7 @@ fi
 if $INSTALL_CLAUDE; then
 echo "2. [Claude] Start a new Claude Code session — CLAUDE.md and .claude/rules/ are auto-loaded"
 echo "   → The SessionStart hook will run scan-project-state.sh automatically"
-echo "   → PostToolUse hook will update metadata after each edit to a final/ doc"
+echo "   → PostToolUse hook will update metadata after each edit to a latest/ doc"
 fi
 echo ""
 echo "For help, see: companion/README.md"

@@ -12,11 +12,11 @@ Enable engineers to contribute effectively without tribal knowledge, and keep th
 
 ## Pipeline
 
-Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into final documents. The final documents are the source of truth for this layer.
+Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into latest documents. The latest documents are the source of truth for this layer.
 
 ```mermaid
 flowchart LR
-    subgraph upstream3 [Layer 3 Finals]
+    subgraph upstream3 [Layer 3 Latest]
         U1[Architecture Overview]
         U2[ADRs]
         U3[Feature Technical Specs]
@@ -24,7 +24,7 @@ flowchart LR
         U5[Tech Stack Rationale]
     end
 
-    subgraph upstream2 [Layer 2 Finals]
+    subgraph upstream2 [Layer 2 Latest]
         U6[Feature Design Specs]
     end
 
@@ -39,7 +39,7 @@ flowchart LR
         I1[Working Drafts]
     end
 
-    subgraph final [Final Documents]
+    subgraph latest [Latest Documents]
         F1[Development Guide]
         F2[Deployment Guide]
         F3[Monitoring & Observability]
@@ -48,27 +48,27 @@ flowchart LR
     upstream3 --> intermediate
     upstream2 --> intermediate
     project --> intermediate
-    intermediate --> final
+    intermediate --> latest
 ```
 
 ### Raw Inputs
 
-Materials gathered, not authored. Includes all Layer 3 final documents as primary upstream inputs, Layer 2 design specs when applicable, and project-level materials — the codebase, PR discussions, code review threads, and retro notes. See [raw-inputs/README.md](raw-inputs/README.md) for the full checklist.
+Materials gathered, not authored. Includes all Layer 3 latest documents as primary upstream inputs, Layer 2 design specs when applicable, and project-level materials — the codebase, PR discussions, code review threads, and retro notes. See [raw-inputs/README.md](raw-inputs/README.md) for the full checklist.
 
 ### Intermediate Artifacts
 
 This layer's synthesis is lighter than earlier layers — the team discusses conventions, patterns, and workflow, reaches agreement, and documents it. Working drafts can live in `intermediate/` if the team finds that useful, but no specific artifact templates are required. See [intermediate/README.md](intermediate/README.md).
 
-### Final Documents
+### Latest Documents
 
 Canonical, reviewed, consumable. These are the source of truth for this layer. Each carries full YAML frontmatter for cascade tracking.
 
 
 | Document | Required | What It Covers |
 |---|---|---|
-| [Development Guide](final/development-guide.md) | Mandatory | Coding conventions, testing strategy, branch/PR workflow, key implementation patterns, project-specific tooling |
-| [Deployment Guide](final/deployment-guide.md) | Optional | Environments, deployment process, CI/CD pipeline, rollback procedure |
-| [Monitoring & Observability](final/monitoring-and-observability.md) | Optional | What is monitored, dashboards, alerting, logging |
+| [Development Guide](latest/development-guide.md) | Mandatory | Coding conventions, testing strategy, branch/PR workflow, key implementation patterns, project-specific tooling |
+| [Deployment Guide](latest/deployment-guide.md) | Optional | Environments, deployment process, CI/CD pipeline, rollback procedure |
+| [Monitoring & Observability](latest/monitoring-and-observability.md) | Optional | What is monitored, dashboards, alerting, logging |
 
 
 ---
@@ -81,9 +81,9 @@ The `tools/` folder contains AI skills and process guides that accelerate produc
 
 ## Inheritance
 
-**Upstream:** All final documents from Layer 3 (Architecture) are explicit inputs to this layer — the Architecture Overview, ADRs, Feature Technical Specs, Non-functional Requirements, and Tech Stack Rationale together provide the technical context that implementation and operations docs are written against. Layer 2 (Design) final documents are referenced when the project has a UI component.
+**Upstream:** All latest documents from Layer 3 (Architecture) are explicit inputs to this layer — the Architecture Overview, ADRs, Feature Technical Specs, Non-functional Requirements, and Tech Stack Rationale together provide the technical context that implementation and operations docs are written against. Layer 2 (Design) latest documents are referenced when the project has a UI component.
 
-**Downstream:** This is the terminal layer. There is no Layer 5. The Development Guide, Deployment Guide, and Monitoring & Observability document are the final artifacts of this framework — they represent the full body of knowledge needed to build, ship, and run the system.
+**Downstream:** This is the terminal layer. There is no Layer 5. The Development Guide, Deployment Guide, and Monitoring & Observability document are the latest artifacts of this framework — they represent the full body of knowledge needed to build, ship, and run the system.
 
 ---
 

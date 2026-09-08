@@ -41,9 +41,9 @@ Your role guides the companion's suggestions:
 Open any document in the documentation framework and start editing. The companion rule (`.cursor/rules/db90-companion.mdc`) is always active. It will:
 
 - Detect which layer you're working in (Layer 1: Product, Layer 2: Design, Layer 3: Architecture)
-- Load upstream `final/` documents from `relates_to` for context
+- Load upstream `latest/` documents from `relates_to` for context
 - Suggest the appropriate skill for your current task
-- Enforce layer sequencing (e.g., can't finalize a Layer 2 design before Layer 1 is consensus)
+- Enforce layer sequencing (e.g., can't promote a Layer 2 design to latest before Layer 1 is consensus)
 
 ## How It Works
 
@@ -78,12 +78,12 @@ companion/ (repo root — source of truth, committed)
 ### Two Hooks
 
 **`scan-project-state.sh`** (runs on `sessionStart`)
-- Scans all `layers/*/final/*.md` documents
+- Scans all `layers/*/latest/*.md` documents
 - Reads frontmatter: `status`, `last_updated`, `relates_to`
 - Generates `.cursor/session-state.md` with a summary of what needs attention
 - The rule reads this and surfaces it in the chat
 
-**`update-metadata.sh`** (runs on `afterFileEdit`, scoped to `layers/**/final/**/*.md`)
+**`update-metadata.sh`** (runs on `afterFileEdit`, scoped to `layers/**/latest/**/*.md`)
 - Auto-updates `last_updated` to today's date
 - Reads `relates_to` and cascades `status: needs_review` to downstream docs
 - Makes the documentation cascade automatic — no manual notifications needed
@@ -97,7 +97,7 @@ companion/ (repo root — source of truth, committed)
 
 **Guided** (during active work)
 - Rule detects your current document's layer (0-4)
-- Loads upstream Layer N-1 finals automatically
+- Loads upstream Layer N-1 latest documents automatically
 - Enforces sequencing (can't skip layers; Layer 0 informs Layer 1, etc.)
 - Suggests the right skill for drafting, reviewing, or refining
 
@@ -117,8 +117,8 @@ companion/ (repo root — source of truth, committed)
 ### Layer-Specific Skills (loaded based on current layer)
 
 - **`draft-feature-spec`** (Layer 1) — Draft a product feature specification from raw inputs (user story, constraints).
-- **`draft-design-spec`** (Layer 2) — Draft a design specification from an approved Layer 1 final.
-- **`draft-technical-spec`** (Layer 3) — Draft a technical specification from Layer 1 + 2 finals.
+- **`draft-design-spec`** (Layer 2) — Draft a design specification from an approved Layer 1 latest document.
+- **`draft-technical-spec`** (Layer 3) — Draft a technical specification from Layer 1 + 2 latest documents.
 
 **Note**: Skills for Layer 0 (Business) and Layer 4 (Implementation) are not yet included. These can be added based on your team's needs.
 
@@ -139,7 +139,7 @@ Roles customize the rule's guidance. Use one of: `pm`, `designer`, `tech-lead`, 
 
 ### Frontmatter Conventions
 
-All `final/` docs should have YAML frontmatter:
+All `latest/` docs should have YAML frontmatter:
 
 ```yaml
 ---
@@ -148,13 +148,13 @@ owner: "Name or Team"
 status: draft | needs_review | in_progress | consensus | needs_update
 last_updated: YYYY-MM-DD
 relates_to:
-  - layers/layer-1-product/final/features/feature-name.md
-  - layers/layer-2-design/final/flows/design-decision.md
+  - layers/layer-1-product/latest/features/feature-name.md
+  - layers/layer-2-design/latest/flows/design-decision.md
 ---
 ```
 
 Key fields:
-- `status`: Drives the cascade. When a `final/` doc is edited, the hook cascades `needs_review` to all docs listed in `relates_to`.
+- `status`: Drives the cascade. When a `latest/` doc is edited, the hook cascades `needs_review` to all docs listed in `relates_to`.
 - `last_updated`: Auto-maintained by the hook (you can edit it; the hook will overwrite on next save).
 - `relates_to`: Upstream docs this one depends on. The rule loads these for context.
 
@@ -165,8 +165,8 @@ Key fields:
 1. **Gather inputs** — Get user story, problem statement, success criteria.
 2. **Use `draft-feature-spec`** — Skill guides you through Layer 1 draft.
 3. **Product review** — Team reviews in `draft/`; feedback incorporated.
-4. **Move to `final/`** — Change `status: consensus` once approved.
-5. **Layer 2 begins** — Design team uses `draft-design-spec`, which loads your Layer 1 final as context.
+4. **Move to `latest/`** — Change `status: consensus` once approved.
+5. **Layer 2 begins** — Design team uses `draft-design-spec`, which loads your Layer 1 latest document as context.
 
 ### Long or Drifting Session
 

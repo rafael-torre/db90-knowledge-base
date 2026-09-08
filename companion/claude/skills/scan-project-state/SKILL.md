@@ -9,7 +9,7 @@ Use this skill to get an on-demand snapshot of the entire documentation project'
 
 ## What It Does
 
-Scans all `final/` documents across all layers, extracts frontmatter (`status`, `last_updated`, `relates_to`), and produces a compact summary showing:
+Scans all `latest/` documents across all layers, extracts frontmatter (`status`, `last_updated`, `relates_to`), and produces a compact summary showing:
 
 - **Docs needing review** (`status: needs_review`)
 - **Docs needing update** (`status: needs_update`)
@@ -39,7 +39,7 @@ bash companion/hooks/scan-project-state.sh .
 This writes both `.cursor/session-state.md` and `.claude/session-state.md`. Read `.claude/session-state.md` and summarize the findings in chat.
 
 Alternatively, scan manually:
-1. Recursively scan `layers/*/final/**/*.md`
+1. Recursively scan `layers/*/latest/**/*.md`
 2. Parse YAML frontmatter from each document
 3. Categorize by `status` and check `last_updated` dates
 4. Cross-reference `relates_to` links to detect missing upstream docs
@@ -47,7 +47,7 @@ Alternatively, scan manually:
 
 ## Key Metrics
 
-- **Consensus rate**: % of final/ docs with `status: consensus`
+- **Consensus rate**: % of latest/ docs with `status: consensus`
 - **Staleness**: Docs older than 30 days
 - **Cascade health**: Orphaned downstream docs (no `relates_to` upstream)
 - **Active work**: Docs currently being drafted or reviewed

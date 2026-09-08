@@ -12,7 +12,7 @@ This repository uses a five-layer documentation model:
 - **Layer 3 (Architecture)**: Structural decisions, system boundaries, technical reasoning — owned by Tech Lead
 - **Layer 4 (Implementation)**: Engineering guidance, development, deployment, operations — owned by Dev Team + Tech Lead
 
-Each layer has a `draft/` folder (early thinking) and a `final/` folder (consensus). Documents flow downstream: Layer 0 → Layer 1 → Layer 2 → Layer 3 → Layer 4. Each layer can be independent; not every project needs every layer.
+Each layer has a `draft/` folder (early thinking) and a `latest/` folder (consensus). Documents flow downstream: Layer 0 → Layer 1 → Layer 2 → Layer 3 → Layer 4. Each layer can be independent; not every project needs every layer.
 
 ## Session Modes
 
@@ -28,9 +28,9 @@ At the start of every session:
 
 As the user works on a document:
 - Detect which layer from the file path (e.g., `layers/layer-2-design/draft/...` → Layer 2)
-- Load the upstream Layer N-1 final documents via `relates_to` links for reference
+- Load the upstream Layer N-1 latest documents via `relates_to` links for reference
 - Suggest the appropriate skill for the current task (draft, review, refine)
-- Enforce layer sequencing: do not finalize Layer N before the Layer N-1 final reaches `consensus`
+- Enforce layer sequencing: do not promote Layer N to latest before the Layer N-1 latest reaches `consensus`
 
 ### Handoff Mode (when ending or drifting)
 
@@ -42,15 +42,15 @@ Since Claude does not have a native hook runner, invoke these scripts manually a
 
 | Script | When to run | Purpose |
 |---|---|---|
-| `companion/hooks/scan-project-state.sh` | Session start | Scans all `final/` docs and writes a state summary |
-| `companion/hooks/update-metadata.sh <file> <repo_root>` | After editing any `final/` doc | Updates `last_updated` and cascades `needs_review` to related docs |
+| `companion/hooks/scan-project-state.sh` | Session start | Scans all `latest/` docs and writes a state summary |
+| `companion/hooks/update-metadata.sh <file> <repo_root>` | After editing any `latest/` doc | Updates `last_updated` and cascades `needs_review` to related docs |
 
 Run the session-start hook at the beginning of each session:
 ```bash
 bash companion/hooks/scan-project-state.sh .
 ```
 
-After editing a `final/` doc, run:
+After editing a `latest/` doc, run:
 ```bash
 bash companion/hooks/update-metadata.sh <path-to-edited-file> .
 ```
@@ -71,17 +71,17 @@ If the current task does not fit the layers or documentation framework:
 
 ### Layer and Document-Specific Skills
 
-Skills are dynamically loaded based on the file being created or edited. When a draft or final document is opened:
+Skills are dynamically loaded based on the file being created or edited. When a draft or latest document is opened:
 
 1. Detect the layer and document type from the file path
 2. Check for available skills in `.claude/skills/` that match that layer and document type
 3. If a skill exists: load and follow it — the skill guides through creating that specific document type
-4. If no skill exists: use the document template structure as a guide — each final document includes built-in sections and examples
+4. If no skill exists: use the document template structure as a guide — each latest document includes built-in sections and examples
 
 ## Layer-Aware Context Loading
 
 Before any Layer N drafting or review:
-1. Load the Layer N-1 final document(s) via `relates_to` links
+1. Load the Layer N-1 latest document(s) via `relates_to` links
 2. Surface key decisions and constraints from upstream
 3. Ensure the context needed for sound decisions is present before proceeding
 
@@ -105,7 +105,7 @@ If no `.companion.yaml` exists, offer to create one on first use.
 
 ## Frontmatter Conventions
 
-All `final/` docs should have:
+All `latest/` docs should have:
 
 ```yaml
 ---
@@ -120,7 +120,7 @@ relates_to:
 ```
 
 The `status` field drives the cascade:
-- When a `final/` doc is edited, run `update-metadata.sh` to auto-update `last_updated` to today
+- When a `latest/` doc is edited, run `update-metadata.sh` to auto-update `last_updated` to today
 - The script also cascades `status: needs_review` to each doc listed in `relates_to`
 
 ## Quick Start
@@ -135,7 +135,7 @@ The `status` field drives the cascade:
    Use the `scan-project-state` skill or run `companion/hooks/scan-project-state.sh .`
 
 3. **Start a task:**
-   Open a draft or final doc in your target layer. Load upstream context, suggest the right skill, enforce sequencing.
+   Open a draft or latest doc in your target layer. Load upstream context, suggest the right skill, enforce sequencing.
 
 4. **Long or drifting session?**
    Run `session-handoff` to capture decisions and context for the next person or session.

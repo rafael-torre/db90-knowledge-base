@@ -9,7 +9,7 @@ description: 'Guided workflow to document technical decisions and architecture. 
 Document the system architecture for a project or feature. Covers structural decisions, system boundaries, technology choices, and ADRs. Prereq: Layer 1 and Layer 2 in consensus.
 
 ## Inputs
-- Layer 1 and Layer 2 final documents in consensus
+- Layer 1 and Layer 2 latest documents in consensus
 - User input on technical goals and constraints
 
 ## Outputs
@@ -23,4 +23,4 @@ Document the system architecture for a project or feature. Covers structural dec
 4. Document structural decisions and trade-offs
 5. Write ADRs for each significant decision
 6. Write architecture overview — invoke **skill-mermaid-diagram** to produce the system diagram section
-7. Prompt to promote via skill-promote-to-final when ready
+7. Prompt to promote via skill-promote-to-latest when ready

@@ -11,7 +11,7 @@
       "description": "Auto-update metadata and cascade changes to related docs",
       "script": "${CURSOR_WORKSPACE_ROOT}/companion/hooks/update-metadata.sh",
       "args": ["${CURSOR_FILE_PATH}", "${CURSOR_WORKSPACE_ROOT}"],
-      "filePattern": "**/layers/**/final/**/*.md"
+      "filePattern": "**/layers/**/latest/**/*.md"
     }
   ]
 }

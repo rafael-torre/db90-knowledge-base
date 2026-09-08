@@ -6,17 +6,17 @@ Materials gathered, not authored. Work through this checklist at the start of ar
 
 ## Upstream Layer Documents
 
-The final documents from Layer 1 (Product) are the primary inputs to this layer. Layer 2 (Design) documents are included when the project has a UI component. These are not optional — they provide the product and design context that shapes every architectural decision.
+The latest documents from Layer 1 (Product) are the primary inputs to this layer. Layer 2 (Design) documents are included when the project has a UI component. These are not optional — they provide the product and design context that shapes every architectural decision.
 
 ### Layer 1: Product
 
 | Input | Description | Source |
 | ----- | ----------- | ------ |
-| Product Brief | Problem space, target users, product vision, scope, key assumptions | Layer 1 final |
-| Feature Specs | Feature behavior, business rules, acceptance criteria, edge cases, dependencies | Layer 1 final |
-| Success Metrics | Product KPIs and quality targets that architecture must support | Layer 1 final |
-| Domain Glossary | Shared vocabulary — ensures architectural naming aligns with product and business language | Layer 1 final |
-| User Journeys | Cross-feature flows — informs sequencing and integration requirements | Layer 1 final |
+| Product Brief | Problem space, target users, product vision, scope, key assumptions | Layer 1 latest |
+| Feature Specs | Feature behavior, business rules, acceptance criteria, edge cases, dependencies | Layer 1 latest |
+| Success Metrics | Product KPIs and quality targets that architecture must support | Layer 1 latest |
+| Domain Glossary | Shared vocabulary — ensures architectural naming aligns with product and business language | Layer 1 latest |
+| User Journeys | Cross-feature flows — informs sequencing and integration requirements | Layer 1 latest |
 
 ### Layer 2: Design
 
@@ -24,8 +24,8 @@ Include when the project has a UI component. Skip and note as N/A when Layer 2 d
 
 | Input | Description | Source |
 | ----- | ----------- | ------ |
-| Feature Design Specs | States, interactions, responsive behavior, accessibility requirements — informs frontend architecture | Layer 2 final |
-| Design System Reference | Component library, design variables, naming conventions — informs frontend tech decisions | Layer 2 final |
+| Feature Design Specs | States, interactions, responsive behavior, accessibility requirements — informs frontend architecture | Layer 2 latest |
+| Design System Reference | Component library, design variables, naming conventions — informs frontend tech decisions | Layer 2 latest |
 
 ### Layer 0: Business
 
@@ -33,14 +33,14 @@ Referenced directly when architectural decisions have business-level implication
 
 | Input | Description | Source |
 | ----- | ----------- | ------ |
-| Strategic Goals and Constraints | Budget, timeline, and operational constraints that limit architectural choices | Layer 0 final |
-| Business Overview | Existing systems and integrations the client already has — shapes integration architecture | Layer 0 final |
+| Strategic Goals and Constraints | Budget, timeline, and operational constraints that limit architectural choices | Layer 0 latest |
+| Business Overview | Existing systems and integrations the client already has — shapes integration architecture | Layer 0 latest |
 
 ---
 
 ## Technical Discovery
 
-Outputs from technical investigations and experiments. These are gathered before or during architecture work — they inform decisions but are not final documents themselves.
+Outputs from technical investigations and experiments. These are gathered before or during architecture work — they inform decisions but are not latest documents themselves.
 
 | Input | Description | Who Provides |
 | ----- | ----------- | ------------ |

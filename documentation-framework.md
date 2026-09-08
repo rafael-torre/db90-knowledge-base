@@ -6,13 +6,13 @@ A layered documentation structure for software products across the full developm
 
 ## Core Principles
 
-### 1. Final Documents Are the Source of Truth
+### 1. Latest Documents Are the Source of Truth
 
-Raw inputs (transcripts, interviews, client materials) inform the process but are never canonical. Contradictions and ambiguities in raw inputs get resolved during synthesis. The resolution is what gets documented — the final document at each layer is the authoritative reference.
+Raw inputs (transcripts, interviews, client materials) inform the process but are never canonical. Contradictions and ambiguities in raw inputs get resolved during synthesis. The resolution is what gets documented — the latest document at each layer is the authoritative reference.
 
 ### 2. Each Layer Inherits From the Layers Above
 
-The final documents of Layer N are explicit inputs to Layer N+1. This inheritance is not implicit — each layer's inputs section names the upstream documents it depends on. This creates a traceable chain from business context all the way down to operational runbooks.
+The latest documents of Layer N are explicit inputs to Layer N+1. This inheritance is not implicit — each layer's inputs section names the upstream documents it depends on. This creates a traceable chain from business context all the way down to operational runbooks.
 
 ### 3. Every Layer Follows the Same Refinement Pipeline
 
@@ -21,9 +21,9 @@ Regardless of the layer, documentation moves through three stages:
 
 | Stage               | Description                                                                    |
 | ------------------- | ------------------------------------------------------------------------------ |
-| **Raw inputs**      | Gathered, not authored. Unstructured. Includes upstream layer final documents. |
+| **Raw inputs**      | Gathered, not authored. Unstructured. Includes upstream layer latest documents. |
 | **Intermediate**    | Synthesized from raw inputs into structured artifacts. Living, iterative.      |
-| **Final documents** | Canonical, reviewed, consumable. The source of truth for this layer.           |
+| **Latest documents** | Canonical, reviewed, consumable. The source of truth for this layer.           |
 
 
 ### 4. Documentation State Is Per-Layer, Not Global
@@ -47,7 +47,7 @@ A project may have mature product docs but no operations docs yet. Each layer ca
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Raw inputs**      | Client onboarding materials, stakeholder interviews, industry research, existing systems/products the client has, contracts/SOWs, initial discovery calls |
 | **Intermediate**    | Open collection — meeting summaries, research syntheses, discovery notes, and other working documents produced during synthesis                           |
-| **Final documents** | Business Overview, Strategic Goals and Constraints, Stakeholder Map, Competitive Landscape                                                                |
+| **Latest documents** | Business Overview, Strategic Goals and Constraints, Stakeholder Map, Competitive Landscape                                                                |
 
 
 **Flows into:** Layer 1 (Product), and referenced by all downstream layers for business context.
@@ -67,9 +67,9 @@ A project may have mature product docs but no operations docs yet. Each layer ca
 
 | Stage               | Artifacts                                                                                                                                                                                                    |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Raw inputs**      | **Layer 0 final documents**, meeting transcripts, client briefs, stakeholder interviews, chat threads, existing product docs, market research, competitor products                                           |
+| **Raw inputs**      | **Layer 0 latest documents**, meeting transcripts, client briefs, stakeholder interviews, chat threads, existing product docs, market research, competitor products                                           |
 | **Intermediate**    | Personas, Problem Statement, Business Context, Competitive Landscape, Gap Analysis (unclear or contradictory information from raw inputs), Decision Log (resolutions of ambiguities with rationale and date) |
-| **Final documents** | Product Brief, PRD, User Journeys, Success Metrics & KPIs, Domain Glossary                                                                                                                                   |
+| **Latest documents** | Product Brief, PRD, User Journeys, Success Metrics & KPIs, Domain Glossary                                                                                                                                   |
 
 
 **Flows into:** Layer 2 (Design) and Layer 3 (Architecture).
@@ -87,9 +87,9 @@ A project may have mature product docs but no operations docs yet. Each layer ca
 
 | Stage               | Artifacts                                                                                                                                                               |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Raw inputs**      | **Layer 0 final documents**, **Layer 1 final documents** (PRD, personas, user journeys), user research sessions, usability tests, design critiques, reference materials |
+| **Raw inputs**      | **Layer 0 latest documents**, **Layer 1 latest documents** (PRD, personas, user journeys), user research sessions, usability tests, design critiques, reference materials |
 | **Intermediate**    | Wireframes, Prototypes, Information Architecture, Interaction Patterns                                                                                                  |
-| **Final documents** | Design Spec (screens, behavior, states), Design System / Component Library, Accessibility Requirements                                                                  |
+| **Latest documents** | Design Spec (screens, behavior, states), Design System / Component Library, Accessibility Requirements                                                                  |
 
 
 **Flows into:** Layer 3 (Architecture) and Layer 4 (Implementation).
@@ -109,9 +109,9 @@ A project may have mature product docs but no operations docs yet. Each layer ca
 
 | Stage               | Artifacts                                                                                                                                                                                                                                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Raw inputs**      | **Layer 0 final documents**, **Layer 1 final documents** (PRD, success metrics, domain glossary), **Layer 2 final documents** (design spec, component library — when applicable), tech spike results, PoC outcomes, vendor evaluations, existing system audits, client-provided technical docs |
+| **Raw inputs**      | **Layer 0 latest documents**, **Layer 1 latest documents** (PRD, success metrics, domain glossary), **Layer 2 latest documents** (design spec, component library — when applicable), tech spike results, PoC outcomes, vendor evaluations, existing system audits, client-provided technical docs |
 | **Intermediate**    | C4 diagrams (context, container), Data models, API contracts, Integration maps, Decision Log (tech choices with rationale — raw material for ADRs)                                                                                                                                             |
-| **Final documents** | Architecture Overview, ADRs, Key Flows (sequence diagrams), Non-functional Requirements, Tech Stack Rationale                                                                                                                                                                                  |
+| **Latest documents** | Architecture Overview, ADRs, Key Flows (sequence diagrams), Non-functional Requirements, Tech Stack Rationale                                                                                                                                                                                  |
 
 
 **Flows into:** Layer 4 (Implementation).
@@ -129,9 +129,9 @@ A project may have mature product docs but no operations docs yet. Each layer ca
 
 | Stage               | Artifacts                                                                                                                                                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Raw inputs**      | **Layer 3 final documents** (architecture overview, ADRs, feature technical specs, NFRs, tech stack rationale), **Layer 2 final documents** (design spec — when applicable), codebase, PR discussions, code review threads, retro notes |
+| **Raw inputs**      | **Layer 3 latest documents** (architecture overview, ADRs, feature technical specs, NFRs, tech stack rationale), **Layer 2 latest documents** (design spec — when applicable), codebase, PR discussions, code review threads, retro notes |
 | **Intermediate**    | Working drafts — open collection, no required artifacts                                                                                                                                                                                  |
-| **Final documents** | Development Guide (mandatory), Deployment Guide (optional), Monitoring & Observability (optional)                                                                                                                                        |
+| **Latest documents** | Development Guide (mandatory), Deployment Guide (optional), Monitoring & Observability (optional)                                                                                                                                        |
 
 
 **This is the terminal layer.**
@@ -182,9 +182,9 @@ Each layer carries its own status. A simple maturity table gives a dashboard vie
 | ---------------- | -------------------------------------------------------------------- |
 | **N/A**          | This layer does not apply to this project                            |
 | **Not started**  | Layer applies but no documentation exists yet                        |
-| **In progress**  | Raw inputs gathered, synthesis underway, final docs not yet complete |
-| **Established**  | Final documents exist and are current                                |
-| **Needs update** | Final documents exist but are known to be outdated                   |
+| **In progress**  | Raw inputs gathered, synthesis underway, latest docs not yet complete |
+| **Established**  | Latest documents exist and are current                                |
+| **Needs update** | Latest documents exist but are known to be outdated                   |
 
 
 ### Example Status Dashboard
@@ -205,7 +205,7 @@ Each layer carries its own status. A simple maturity table gives a dashboard vie
 
 Defined in detail in [documentation-cascade-mechanism.md](documentation-cascade-mechanism.md). Summary of the approach:
 
-**Document metadata:** Every final document carries YAML frontmatter (`title`, `layer`, `owner`, `last_updated`, `relates_to`, `status`) that enables automated tracking.
+**Document metadata:** Every latest document carries YAML frontmatter (`title`, `layer`, `owner`, `last_updated`, `relates_to`, `status`) that enables automated tracking.
 
 **Top-down changes** (business/product decisions cascading downstream) are handled through a change protocol: the person updating a document checks downstream dependencies and notifies affected owners. The weekly digest catches missed notifications.
 

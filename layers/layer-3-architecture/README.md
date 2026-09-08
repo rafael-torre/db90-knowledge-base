@@ -6,24 +6,24 @@ Define the structural decisions — system boundaries, components, integrations,
 
 **Contributors:** DevOps, senior engineers, PM (constraints), QA (test strategy, quality attributes)
 
-**Scope:** Per project or product. Created after Layer 1 (Product) is established, updated as significant technical decisions are made. When Layer 2 (Design) applies, its final documents are included as inputs before this layer is completed.
+**Scope:** Per project or product. Created after Layer 1 (Product) is established, updated as significant technical decisions are made. When Layer 2 (Design) applies, its latest documents are included as inputs before this layer is completed.
 
 ---
 
 ## Pipeline
 
-Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into final documents. The final documents are the source of truth for this layer.
+Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into latest documents. The latest documents are the source of truth for this layer.
 
 ```mermaid
 flowchart LR
-    subgraph upstream1 [Layer 1 Finals]
+    subgraph upstream1 [Layer 1 Latest]
         U1[Product Brief]
         U2[Feature Specs]
         U3[Success Metrics]
         U4[Domain Glossary]
     end
 
-    subgraph upstream2 [Layer 2 Finals]
+    subgraph upstream2 [Layer 2 Latest]
         U5[Feature Design Specs]
         U6[Design System Reference]
     end
@@ -42,7 +42,7 @@ flowchart LR
         I3[Decision Log]
     end
 
-    subgraph final [Final Documents]
+    subgraph latest [Latest Documents]
         F1[Architecture Overview]
         F2[Non-functional Requirements]
         F3[Tech Stack Rationale]
@@ -53,32 +53,32 @@ flowchart LR
     upstream1 --> intermediate
     upstream2 --> intermediate
     technical --> intermediate
-    intermediate --> final
-    final -->|"feeds into"| Layer4[Layer 4: Implementation]
+    intermediate --> latest
+    latest -->|"feeds into"| Layer4[Layer 4: Implementation]
 ```
 
 ### Raw Inputs
 
-Materials gathered, not authored. Includes all Layer 1 final documents as primary upstream inputs, Layer 2 final documents when applicable, and technical discovery materials. See [raw-inputs/README.md](raw-inputs/README.md) for the full collection checklist.
+Materials gathered, not authored. Includes all Layer 1 latest documents as primary upstream inputs, Layer 2 latest documents when applicable, and technical discovery materials. See [raw-inputs/README.md](raw-inputs/README.md) for the full collection checklist.
 
 ### Intermediate Artifacts
 
-Synthesis products that bridge raw inputs to final documents. These are working documents — iterative, living, and potentially messy. The `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
+Synthesis products that bridge raw inputs to latest documents. These are working documents — iterative, living, and potentially messy. The `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
 
 Examples include tech spike results, integration evaluations, and a running decision log that feeds into ADRs. See [intermediate/](intermediate/) for available templates.
 
-### Final Documents
+### Latest Documents
 
 Canonical, reviewed, consumable. These are the source of truth for this layer. Each carries full YAML frontmatter for cascade tracking.
 
 
 | Document | Scope | What It Covers |
 |---|---|---|
-| [Architecture Overview](final/architecture-overview.md) | One per project | System context, container view, key integrations, data architecture, security, infrastructure |
-| [Non-functional Requirements](final/nonfunctional-requirements.md) | One per project | Performance, scalability, availability, security, observability, compliance |
-| [Tech Stack Rationale](final/tech-stack-rationale.md) | One per project | Core stack, infrastructure, third-party services, development tooling — with rationale for each choice |
-| [ADRs](final/adrs/) | One per significant decision | Context, decision, consequences, alternatives considered |
-| [Feature Technical Specs](final/features/) | One per feature (mirrors Layer 1 structure) | Full-stack technical specification: data model, API contracts, frontend architecture, key flows, work breakdown |
+| [Architecture Overview](latest/architecture-overview.md) | One per project | System context, container view, key integrations, data architecture, security, infrastructure |
+| [Non-functional Requirements](latest/nonfunctional-requirements.md) | One per project | Performance, scalability, availability, security, observability, compliance |
+| [Tech Stack Rationale](latest/tech-stack-rationale.md) | One per project | Core stack, infrastructure, third-party services, development tooling — with rationale for each choice |
+| [ADRs](latest/adrs/) | One per significant decision | Context, decision, consequences, alternatives considered |
+| [Feature Technical Specs](latest/features/) | One per feature (mirrors Layer 1 structure) | Full-stack technical specification: data model, API contracts, frontend architecture, key flows, work breakdown |
 
 
 ---
@@ -91,9 +91,9 @@ The `tools/` folder contains AI skills and process guides that accelerate produc
 
 ## Inheritance
 
-**Upstream:** All final documents from Layer 1 (Product) are explicit inputs to this layer. Layer 2 (Design) final documents are inputs when the project has a UI component — feature design specs and the design system reference inform both the frontend architecture sections of feature technical specs and the overall architecture decisions. Layer 3 documents list relevant upstream files in their `relates_to` frontmatter.
+**Upstream:** All latest documents from Layer 1 (Product) are explicit inputs to this layer. Layer 2 (Design) latest documents are inputs when the project has a UI component — feature design specs and the design system reference inform both the frontend architecture sections of feature technical specs and the overall architecture decisions. Layer 3 documents list relevant upstream files in their `relates_to` frontmatter.
 
-**Downstream:** This layer's final documents are the primary inputs to Layer 4 (Implementation). The Architecture Overview, ADRs, and Feature Technical Specs together give engineers the complete picture of what to build and why. The cascade mechanism tracks when Layer 3 documents change and flags downstream documents for review.
+**Downstream:** This layer's latest documents are the primary inputs to Layer 4 (Implementation). The Architecture Overview, ADRs, and Feature Technical Specs together give engineers the complete picture of what to build and why. The cascade mechanism tracks when Layer 3 documents change and flags downstream documents for review.
 
 ---
 
