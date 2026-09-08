@@ -24,5 +24,6 @@ The single gate from intermediate/ to latest/. Validates that all quality checks
 4. Validate adversarial quality: confirm skill-review-adversarial has been run (or run it now)
 5. Prepare latest/ path: layers/layer-N-<name>/latest/<same-relative-path>
 6. Write document with frontmatter: status: needs_review, last_updated: today, relates_to populated
-7. Run: bash companion/hooks/update-metadata.sh <latest-path> <project-root>
-8. Confirm promotion complete; show path and cascaded docs
+7. If promoting a Layer 3 Feature Technical Spec with a non-empty Data Model section, sync layers/layer-3-architecture/latest/data-model.md (see step-2-write-latest.md)
+8. Run: bash companion/hooks/update-metadata.sh <latest-path> <project-root>
+9. Confirm promotion complete; show path and cascaded docs

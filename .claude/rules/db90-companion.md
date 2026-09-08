@@ -40,9 +40,10 @@ This rule is layer-aware. When working on any document, detect the layer from th
 
 When working on a document, check `~/.claude/skills/` for a skill matching the document type:
 
-- `skill-feature-spec` — for Layer 1 feature spec drafts (product) and Layer 3 feature spec drafts (technical)
+- `skill-product-feature-spec` — for Layer 1 feature spec drafts and edits (product)
 - `skill-ux-spec` — for Layer 2 design spec drafts
 - `skill-create-architecture` — for Layer 3 architecture spec drafts
+- `skill-technical-spec` — for Layer 3 feature technical specs: single entry point for draft, codebase enrichment, and ticket creation; auto-detects phase from frontmatter `status`
 - `skill-review-prose` — for prose quality review across any layer
 - `skill-review-structure` — for structural review across any layer
 - `skill-review-adversarial` — for adversarial review of Layer 3 specs
@@ -62,13 +63,22 @@ When working on a document, check `~/.claude/skills/` for a skill matching the d
 - `scan-project-state` — project health snapshot
 - `session-handoff` — end-of-session resume packet
 - `skill-promote-to-latest` — suggest when user indicates readiness to move content from intermediate/ to latest/ (phrases like "ready to finalize", "promote this", "move to latest")
-- `skill-generate-tickets` — suggest when a Layer 3 feature technical spec reaches consensus status (requires board config in .companion.yaml: board.type and board.project_id)
+- `skill-generate-tickets` — suggest when a Layer 3 feature technical spec reaches consensus status (requires board config in .companion.yaml: board.type and board.project_number)
 
 If a matching skill exists, load and follow it. Otherwise use the template structure in the document as a guide.
 
 ## Handoff
 
 When ending a session or switching context, run the `session-handoff` skill. It writes `.claude/session-handoff.md` capturing decisions, blockers, and next steps.
+
+## Latest Document Style
+
+`latest/` documents (including ADRs under `latest/adrs/`) must read as a clean, current-state description of the system/product — never as a changelog or session log:
+
+- Do not wrap new or changed content in dated callouts like "> ⚠️ Added this session:". Integrate the content directly into the prose, in the same voice as the rest of the document, as if it had always been there.
+- This applies even inside ADRs: an ADR's permanence *is* its decision history (plus git history and `last_updated`). Its `Context`/`Decision` body should still read as one coherent account of the decision, not a narrated log of edits to the ADR itself.
+- Unresolved or evolving decisions belong in the Open Questions table (or equivalent) or in `adr_status: proposed` / inline ⚠️ markers — not in prose narrating what changed and when.
+- Git history and `last_updated` are the record of *when* something changed; the document body is the record of *what is true now*.
 
 ## Providing Guidance
 

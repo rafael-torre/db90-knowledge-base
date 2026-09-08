@@ -59,7 +59,7 @@ Distill the input into the five-field kernel using `{workflow.spec_template}` as
 
 Write lean from the first pass: every sentence must earn its place. Decoration costs tokens and dilutes downstream readers.
 
-If the input is genuinely too thin to distill (e.g. "an app for hikers" with no surrounding context), stop and suggest `skill-feature-spec` (or sibling ceremony skill). This skill distills; it does not coach.
+If the input is genuinely too thin to distill (e.g. "an app for hikers" with no surrounding context), stop and suggest `skill-product-feature-spec` (or sibling ceremony skill). This skill distills; it does not coach.
 
 ## Load-bearing
 
