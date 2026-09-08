@@ -22,4 +22,4 @@ Plan and document UX patterns, screen flows, and design specifications for a fea
 4. Draft UX spec: screen inventory, flow diagrams (Mermaid), component descriptions, interaction patterns
 5. Review with user; iterate
 6. Write to layers/layer-2-design/intermediate/features/<domain>/<feature-name>-ux.md
-7. Prompt to promote via skill-promote-to-final when ready
+7. Prompt to promote via skill-promote-to-latest when ready

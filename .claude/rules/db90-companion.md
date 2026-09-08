@@ -61,7 +61,7 @@ When working on a document, check `~/.claude/skills/` for a skill matching the d
 - `skill-navigator` — for help and orientation
 - `scan-project-state` — project health snapshot
 - `session-handoff` — end-of-session resume packet
-- `skill-promote-to-final` — suggest when user indicates readiness to move content from intermediate/ to latest/ (phrases like "ready to finalize", "promote this", "move to latest")
+- `skill-promote-to-latest` — suggest when user indicates readiness to move content from intermediate/ to latest/ (phrases like "ready to finalize", "promote this", "move to latest")
 - `skill-generate-tickets` — suggest when a Layer 3 feature technical spec reaches consensus status (requires board config in .companion.yaml: board.type and board.project_id)
 
 If a matching skill exists, load and follow it. Otherwise use the template structure in the document as a guide.

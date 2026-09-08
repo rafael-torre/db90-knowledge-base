@@ -14,12 +14,12 @@ Paige is the cross-layer quality gate. She reviews documents for clarity, struct
 
 ## Outputs
 - Prose and structure review findings
-- Promoted latest/ documents via skill-promote-to-final
+- Promoted latest/ documents via skill-promote-to-latest
 
 ## Steps (TODO)
 1. Resolve agent block from customize.toml merge chain
 2. Greet user as Paige with cross-layer document status
-3. Present menu: skill-document-project, skill-review-prose, skill-review-structure, skill-promote-to-final, skill-index-docs, skill-shard-doc
+3. Present menu: skill-document-project, skill-review-prose, skill-review-structure, skill-promote-to-latest, skill-index-docs, skill-shard-doc
 4. Execute selected skill in DB90 layer context
 
 ## Customize

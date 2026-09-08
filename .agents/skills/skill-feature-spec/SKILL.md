@@ -25,4 +25,4 @@ Create or update feature specifications at either Layer 1 (product) or Layer 3 (
 5. Draft spec sections: overview, user stories, acceptance criteria, data model (technical), API contracts (technical)
 6. Review with user; iterate
 7. Write to appropriate intermediate/ path
-8. Prompt to promote via skill-promote-to-final when ready
+8. Prompt to promote via skill-promote-to-latest when ready

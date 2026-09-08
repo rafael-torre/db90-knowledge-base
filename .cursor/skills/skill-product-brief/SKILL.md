@@ -22,4 +22,4 @@ Create or update the Layer 1 product brief — the primary document that capture
 4. Draft brief using brief-template (problem, solution, users, value prop, constraints)
 5. Review with user; iterate
 6. Write to layers/layer-1-product/intermediate/product-brief.md
-7. Prompt to promote via skill-promote-to-final when consensus reached
+7. Prompt to promote via skill-promote-to-latest when consensus reached

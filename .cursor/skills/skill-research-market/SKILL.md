@@ -21,4 +21,4 @@ Conduct structured market and competitive research. Produces research documents 
 3. Customer segment and needs analysis
 4. Market sizing and trend synthesis
 5. Write research document to layers/layer-0-business/intermediate/market-research-<topic>.md
-6. Prompt user to review and promote via skill-promote-to-final
+6. Prompt user to review and promote via skill-promote-to-latest

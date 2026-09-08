@@ -1,9 +1,9 @@
 ---
-name: skill-promote-to-final
+name: skill-promote-to-latest
 description: 'Validate and promote an intermediate document to the corresponding latest/ path with correct frontmatter and metadata cascade. Use when the user indicates readiness to move content to latest.'
 ---
 
-# Promote to Final
+# Promote to Latest
 
 ## Purpose
 The single gate from intermediate/ to latest/. Validates that all quality checks have passed (editorial review, adversarial review, upstream layer in consensus), writes the document to the correct latest/ path with proper frontmatter, and runs update-metadata.sh to cascade needs_review to related docs.

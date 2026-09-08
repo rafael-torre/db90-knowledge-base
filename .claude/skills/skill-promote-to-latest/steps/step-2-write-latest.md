@@ -1,4 +1,4 @@
-# Step 2: Write to Final
+# Step 2: Write to Latest
 
 **Input:** Validated source document, target latest/ path
 
