@@ -7,7 +7,7 @@ last_updated: ""
 
 Contradictions, unknowns, and gaps found during synthesis of raw inputs into product documentation. This artifact tracks where information conflicts, where key details are missing, and what assumptions are being made in the absence of confirmed answers.
 
-Gaps identified here must be resolved before the related final documents (feature specs, product brief) can be considered complete.
+Gaps identified here must be resolved before the related latest documents (feature specs, product brief) can be considered complete.
 
 ---
 

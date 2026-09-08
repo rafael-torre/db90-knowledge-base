@@ -52,11 +52,11 @@ Repeat in batches until all pages are read. Note slide numbers — the appendix 
 
 **Do not** write a slide-by-slide transcript. Organize by **information type**, not by slide order.
 
-Before writing sections, identify which layer the PDF belongs to and what final documents that layer produces. Use `→ maps to:` annotations under each section header to point at the relevant final document in that layer.
+Before writing sections, identify which layer the PDF belongs to and what latest documents that layer produces. Use `→ maps to:` annotations under each section header to point at the relevant latest document in that layer.
 
 **Layer reference:**
 
-| Layer | Final documents |
+| Layer | Latest documents |
 |---|---|
 | 0 — Business | Business Overview, Strategic Goals & Constraints, Stakeholder Map, Competitive Landscape |
 | 1 — Product | Product Brief, User Personas, Feature Specs, User Journeys, Success Metrics, Domain Glossary |
@@ -125,7 +125,7 @@ Source: [brief description of the document, slide count, date if shown].
 
 ## [Section Name]
 
-→ *maps to: `final/[document].md`*
+→ *maps to: `latest/[document].md`*
 
 [Extracted and synthesized content]
 
@@ -144,7 +144,7 @@ Source: [brief description of the document, slide count, date if shown].
 ## Tips
 
 - **Appendix slides**: Many pitch decks have an appendix that repeats core slides with minor wording differences. Read them all — unique content often lives there. Note discrepancies rather than duplicating content.
-- **Tables and financial data**: Reproduce these as markdown tables; they are high-value for downstream final documents.
+- **Tables and financial data**: Reproduce these as markdown tables; they are high-value for downstream latest documents.
 - **Quoted language**: Preserve exact wording for taglines, value propositions, and domain-specific names — these matter for glossaries and overview documents.
 - **Roadmap vs. live features**: Explicitly flag which capabilities are live vs. on the roadmap. Mixing them creates confusion in downstream layers.
 - **Multiple document sources**: If the same section is covered by multiple raw inputs, note the source for each claim. Conflicts go in Open Questions.

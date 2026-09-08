@@ -4,9 +4,9 @@ layer: architecture
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-1-product/final/success-metrics.md
-  - layers/layer-1-product/final/product-brief.md
-  - layers/layer-3-architecture/final/architecture-overview.md
+  - layers/layer-1-product/latest/success-metrics.md
+  - layers/layer-1-product/latest/product-brief.md
+  - layers/layer-3-architecture/latest/architecture-overview.md
 status: in_progress
 ---
 

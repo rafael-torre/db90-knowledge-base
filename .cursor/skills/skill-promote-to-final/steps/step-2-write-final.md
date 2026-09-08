@@ -1,14 +1,14 @@
 # Step 2: Write to Final
 
-**Input:** Validated source document, target final/ path
+**Input:** Validated source document, target latest/ path
 
 **Actions:**
-- Derive final/ path: replace /intermediate/ with /final/ in source path
-- Ensure final/ directory exists
+- Derive latest/ path: replace /intermediate/ with /latest/ in source path
+- Ensure latest/ directory exists
 - Copy document content; update frontmatter:
   - status: needs_review
   - last_updated: <today YYYY-MM-DD>
-  - relates_to: populate with upstream layer final/ doc paths
-- Write to final/ path
+  - relates_to: populate with upstream layer latest/ doc paths
+- Write to latest/ path
 
-**Output:** Promoted document at final/ path
+**Output:** Promoted document at latest/ path

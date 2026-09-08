@@ -20,7 +20,7 @@ Both directions need different detection mechanisms but share the same resolutio
 
 ## Document Metadata
 
-Every final document carries YAML frontmatter. This metadata is the foundation — the PR check, the weekly digest, and the status dashboard all depend on it.
+Every latest document carries YAML frontmatter. This metadata is the foundation — the PR check, the weekly digest, and the status dashboard all depend on it.
 
 ```yaml
 ---
@@ -52,7 +52,7 @@ status: established
 
 - `last_updated` reflects the last time the document's **content** was meaningfully reviewed or changed.
 - `last_updated` is **auto-updated** by a CI step or pre-commit hook: when a PR modifies a file under `docs/`, the hook automatically sets `last_updated` to the current date in the frontmatter. This removes the dependency on people remembering to update it manually. The auto-update runs before the PR is merged, so the metadata is always accurate in the final commit.
-- `relates_to` lists only **final documents**, not raw inputs or intermediate artifacts.
+- `relates_to` lists only **latest documents**, not raw inputs or intermediate artifacts.
 - `owner` is a single person, not a team. One person is accountable, even if multiple people contribute.
 
 ---
@@ -67,7 +67,7 @@ These originate from human decisions — a client changes direction, a requireme
 
 **Process:**
 
-1. Owner updates the final document and its `last_updated` date.
+1. Owner updates the latest document and its `last_updated` date.
 2. Owner checks: which documents list this file in their `relates_to`?
 3. For each affected related document, the owner notifies that document's owner (Slack message, GitHub issue, or a comment on the document) that a related document changed.
 4. Downstream owner reviews their document and either:
@@ -235,7 +235,7 @@ A scheduled GitHub Action (or equivalent cron job) that:
 
 When documentation changes, follow this protocol. It applies regardless of which layer the change is in.
 
-### When You Update a Final Document
+### When You Update a Latest Document
 
 1. Update the content.
 2. Set `status` to `established` (if it was `needs_update` or `in_progress`). The `last_updated` date is handled automatically by the CI step — no need to set it manually.
@@ -302,6 +302,6 @@ These are explicitly out of scope for the MVP and may be addressed later:
 - **Automated documentation generation or rewriting.** The mechanism detects drift and notifies — it does not auto-fix. AI-assisted doc update PRs are a future enhancement.
 - **Traceability IDs across layers.** Lightweight `relates_to` paths are sufficient for now. Formal requirement IDs (e.g., FR-AUTH-001 traced from PRD to code) are a future consideration.
 - **Blocking merges on stale documentation.** The PR check is advisory. Enforcement gates may be introduced later if advisory checks prove insufficient.
-- **Non-repo documentation sync.** If documentation exists outside the repository (Confluence, Notion, Google Docs), this mechanism does not track it. All final documents are expected to live in the repo.
+- **Non-repo documentation sync.** If documentation exists outside the repository (Confluence, Notion, Google Docs), this mechanism does not track it. All latest documents are expected to live in the repo.
 - **Cross-project cascade.** Layer 0 (Business) is scoped per engagement and may feed multiple projects. Cross-project cascade (one business doc affecting docs in multiple project repos) is not handled by this mechanism.
 

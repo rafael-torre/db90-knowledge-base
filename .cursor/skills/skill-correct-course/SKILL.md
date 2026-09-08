@@ -9,7 +9,7 @@ description: 'Analyze misalignment between layers and propose corrective steps. 
 Detect and resolve misalignment between documentation layers — when a downstream layer has drifted from upstream decisions, or when requirements have changed mid-project.
 
 ## Inputs
-- Any layer final documents identified as misaligned
+- Any layer latest documents identified as misaligned
 - User description of the detected problem or change signal
 
 ## Outputs

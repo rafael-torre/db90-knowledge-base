@@ -4,8 +4,8 @@ layer: implementation
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-3-architecture/final/architecture-overview.md
-  - layers/layer-3-architecture/final/tech-stack-rationale.md
+  - layers/layer-3-architecture/latest/architecture-overview.md
+  - layers/layer-3-architecture/latest/tech-stack-rationale.md
 status: in_progress
 ---
 

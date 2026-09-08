@@ -27,9 +27,9 @@ Every Feature Technical Spec carries full YAML frontmatter. The `relates_to` fie
 
 ```yaml
 relates_to:
-  - layers/layer-1-product/final/features/[domain]/[feature].md
-  - layers/layer-2-design/final/features/[domain]/[feature].md  # when applicable
-  - layers/layer-3-architecture/final/architecture-overview.md
+  - layers/layer-1-product/latest/features/[domain]/[feature].md
+  - layers/layer-2-design/latest/features/[domain]/[feature].md  # when applicable
+  - layers/layer-3-architecture/latest/architecture-overview.md
 ```
 
 This is what enables cascade tracking — when a Layer 1 feature spec or Layer 2 design spec changes, the Feature Technical Spec is flagged for review.
@@ -62,7 +62,7 @@ Feature Technical Specs are created in two phases, each supported by an AI skill
 
 **Input:** Layer 1 Feature Spec + Layer 2 Feature Design Spec (when applicable) + Architecture Overview
 
-**Output:** Feature Technical Spec with `status: in_progress` in `final/features/[domain]/[feature].md`
+**Output:** Feature Technical Spec with `status: in_progress` in `latest/features/[domain]/[feature].md`
 
 Run the **Feature Technical Spec Drafting Skill** or write manually. This phase works entirely from documentation — no codebase access is needed. The draft captures the technical approach, design decisions, data model intent, API contracts, frontend architecture decisions, key flows, and a rough work breakdown. Codebase-specific details (actual file paths, current schema fields, existing component names) are left as guiding prompts.
 

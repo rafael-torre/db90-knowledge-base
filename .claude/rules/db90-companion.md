@@ -25,9 +25,9 @@ This rule is layer-aware. When working on any document, detect the layer from th
 
 ## Layer-Aware Guidance
 
-- Before drafting or reviewing a Layer N document, load the Layer N-1 `final/` documents via `relates_to` links
+- Before drafting or reviewing a Layer N document, load the Layer N-1 `latest/` documents via `relates_to` links
 - Surface key decisions and constraints from upstream before proceeding
-- Enforce sequencing: do not finalize Layer N before Layer N-1 final reaches `consensus`
+- Enforce sequencing: do not promote Layer N to latest before Layer N-1 latest reaches `consensus`
 - Detect which layer you are in and tailor suggestions accordingly
 
 ## Session State
@@ -61,7 +61,7 @@ When working on a document, check `~/.claude/skills/` for a skill matching the d
 - `skill-navigator` — for help and orientation
 - `scan-project-state` — project health snapshot
 - `session-handoff` — end-of-session resume packet
-- `skill-promote-to-final` — suggest when user indicates readiness to move content from intermediate/ to final/ (phrases like "ready to finalize", "promote this", "move to final")
+- `skill-promote-to-final` — suggest when user indicates readiness to move content from intermediate/ to latest/ (phrases like "ready to finalize", "promote this", "move to latest")
 - `skill-generate-tickets` — suggest when a Layer 3 feature technical spec reaches consensus status (requires board config in .companion.yaml: board.type and board.project_id)
 
 If a matching skill exists, load and follow it. Otherwise use the template structure in the document as a guide.

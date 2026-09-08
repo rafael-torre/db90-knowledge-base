@@ -4,8 +4,8 @@ layer: implementation
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-3-architecture/final/architecture-overview.md
-  - layers/layer-4-implementation/final/development-guide.md
+  - layers/layer-3-architecture/latest/architecture-overview.md
+  - layers/layer-4-implementation/latest/development-guide.md
 status: in_progress
 optional: true
 ---
@@ -16,7 +16,7 @@ optional: true
 
 How to deploy this system — from a merged PR to a running production environment. This document is written for the person doing the deploy or inheriting operational responsibility: they should be able to follow it without asking anyone for help.
 
-This is not an architecture document. Infrastructure decisions and rationale live in the [Architecture Overview](../../layer-3-architecture/final/architecture-overview.md). This document covers the operational procedure.
+This is not an architecture document. Infrastructure decisions and rationale live in the [Architecture Overview](../../layer-3-architecture/latest/architecture-overview.md). This document covers the operational procedure.
 
 ---
 

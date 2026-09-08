@@ -4,16 +4,16 @@ layer: implementation
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-3-architecture/final/nonfunctional-requirements.md
-  - layers/layer-3-architecture/final/architecture-overview.md
-  - layers/layer-4-implementation/final/deployment-guide.md
+  - layers/layer-3-architecture/latest/nonfunctional-requirements.md
+  - layers/layer-3-architecture/latest/architecture-overview.md
+  - layers/layer-4-implementation/latest/deployment-guide.md
 status: in_progress
 optional: true
 ---
 
 # Monitoring & Observability
 
-> **Optional document.** Create this once monitoring tooling is in place and the team has defined what "healthy" looks like for the system. The alerting thresholds here should be grounded in the targets defined in the [Non-functional Requirements](../../layer-3-architecture/final/nonfunctional-requirements.md).
+> **Optional document.** Create this once monitoring tooling is in place and the team has defined what "healthy" looks like for the system. The alerting thresholds here should be grounded in the targets defined in the [Non-functional Requirements](../../layer-3-architecture/latest/nonfunctional-requirements.md).
 
 What we monitor, what we alert on, and how we understand what the system is doing. This document is the reference for anyone who needs to understand the observability setup — whether that's responding to an alert, building a new dashboard, or handing operations to another team.
 

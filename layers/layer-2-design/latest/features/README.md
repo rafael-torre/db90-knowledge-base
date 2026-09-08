@@ -39,8 +39,8 @@ Every feature design spec carries full YAML frontmatter. The `relates_to` field 
 
 ```yaml
 relates_to:
-  - layers/layer-1-product/final/features/[domain]/[feature].md
-  - layers/layer-2-design/final/design-system-reference.md
+  - layers/layer-1-product/latest/features/[domain]/[feature].md
+  - layers/layer-2-design/latest/design-system-reference.md
 ```
 
 ---

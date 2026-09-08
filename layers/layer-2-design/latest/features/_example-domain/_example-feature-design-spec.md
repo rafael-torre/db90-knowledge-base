@@ -4,14 +4,14 @@ layer: design
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-1-product/final/features/_example-domain/_example-feature-spec.md
-  - layers/layer-2-design/final/design-system-reference.md
+  - layers/layer-1-product/latest/features/_example-domain/_example-feature-spec.md
+  - layers/layer-2-design/latest/design-system-reference.md
 status: in_progress
 ---
 
 # Feature Design: [Feature Name]
 
-A complement to the [Layer 1 feature spec](../../../../layer-1-product/final/features/_example-domain/_example-feature-spec.md). Read that document first — it defines what this feature does, who it's for, the business rules, and the acceptance criteria.
+A complement to the [Layer 1 feature spec](../../../../layer-1-product/latest/features/_example-domain/_example-feature-spec.md). Read that document first — it defines what this feature does, who it's for, the business rules, and the acceptance criteria.
 
 This document covers only what the feature spec and Figma cannot convey on their own: design assets, non-obvious states and behavior, interactions and motion, responsive behavior, content specifications, and feature-specific accessibility requirements.
 

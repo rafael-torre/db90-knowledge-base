@@ -6,17 +6,17 @@ Materials gathered, not authored. Work through this checklist at the start of de
 
 ## Upstream Layer Documents
 
-The final documents from Layer 1 (Product) are the primary inputs to this layer. These are not optional — they provide the product context that shapes every design decision.
+The latest documents from Layer 1 (Product) are the primary inputs to this layer. These are not optional — they provide the product context that shapes every design decision.
 
 
 | Input | Description | Source |
 | ----- | ----------- | ------ |
-| Product Brief | Problem space, target users, product vision, scope | Layer 1 final |
-| Feature Specs | Feature behavior, business rules, acceptance criteria, edge cases | Layer 1 final |
-| User Personas | Who the users are, their goals, pain points, behaviors, technical proficiency | Layer 1 final |
-| User Journeys | Cross-feature flows showing how users accomplish goals through the product | Layer 1 final |
-| Success Metrics | Product KPIs and user success criteria that design decisions should serve | Layer 1 final |
-| Domain Glossary | Shared vocabulary to use consistently across design assets and documentation | Layer 1 final |
+| Product Brief | Problem space, target users, product vision, scope | Layer 1 latest |
+| Feature Specs | Feature behavior, business rules, acceptance criteria, edge cases | Layer 1 latest |
+| User Personas | Who the users are, their goals, pain points, behaviors, technical proficiency | Layer 1 latest |
+| User Journeys | Cross-feature flows showing how users accomplish goals through the product | Layer 1 latest |
+| Success Metrics | Product KPIs and user success criteria that design decisions should serve | Layer 1 latest |
+| Domain Glossary | Shared vocabulary to use consistently across design assets and documentation | Layer 1 latest |
 
 
 ---

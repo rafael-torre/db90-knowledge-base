@@ -9,7 +9,7 @@ Use this skill to get an on-demand snapshot of the entire documentation project'
 
 ## What It Does
 
-Scans all `final/` documents across all layers, extracts frontmatter (`status`, `last_updated`, `relates_to`), and produces a compact summary showing:
+Scans all `latest/` documents across all layers, extracts frontmatter (`status`, `last_updated`, `relates_to`), and produces a compact summary showing:
 
 - **Docs needing review** (`status: needs_review`)
 - **Docs needing update** (`status: needs_update`)
@@ -31,7 +31,7 @@ A markdown table and summary in the chat, ready to copy into your session notes 
 ## How It Works
 
 The skill:
-1. Recursively scans `layers/*/final/**/*.md`
+1. Recursively scans `layers/*/latest/**/*.md`
 2. Parses YAML frontmatter from each document
 3. Categorizes by `status` and checks `last_updated` dates
 4. Cross-references `relates_to` links to detect missing upstream docs
@@ -39,7 +39,7 @@ The skill:
 
 ## Key Metrics
 
-- **Consensus rate**: % of final/ docs with `status: consensus`
+- **Consensus rate**: % of latest/ docs with `status: consensus`
 - **Staleness**: Docs older than 30 days
 - **Cascade health**: Orphaned downstream docs (no `relates_to` upstream)
 - **Active work**: Docs currently being drafted or reviewed

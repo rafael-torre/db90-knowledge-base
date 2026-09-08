@@ -4,7 +4,7 @@ layer: design
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-1-product/final/product-brief.md
+  - layers/layer-1-product/latest/product-brief.md
 status: in_progress
 ---
 

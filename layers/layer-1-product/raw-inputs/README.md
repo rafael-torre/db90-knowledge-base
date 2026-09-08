@@ -6,15 +6,15 @@ Materials gathered, not authored. Work through this checklist during product def
 
 ## Upstream Layer Documents
 
-The final documents from Layer 0 (Business) are the primary inputs to this layer. These are not optional — they provide the business context that shapes every product decision.
+The latest documents from Layer 0 (Business) are the primary inputs to this layer. These are not optional — they provide the business context that shapes every product decision.
 
 
 | Input                           | Description                                                           | Source        |
 | ------------------------------- | --------------------------------------------------------------------- | ------------- |
-| Business Overview               | Company identity, business model, customer segments, existing systems | Layer 0 final |
-| Strategic Goals and Constraints | Business objectives, engagement drivers, constraints by type          | Layer 0 final |
-| Stakeholder Map                 | People, roles, decision-making authority, influence, dynamics         | Layer 0 final |
-| Competitive Landscape           | Market position, competitors, differentiators, industry trends        | Layer 0 final |
+| Business Overview               | Company identity, business model, customer segments, existing systems | Layer 0 latest |
+| Strategic Goals and Constraints | Business objectives, engagement drivers, constraints by type          | Layer 0 latest |
+| Stakeholder Map                 | People, roles, decision-making authority, influence, dynamics         | Layer 0 latest |
+| Competitive Landscape           | Market position, competitors, differentiators, industry trends        | Layer 0 latest |
 
 
 ## Client-Provided

@@ -12,7 +12,7 @@ Understand the client's business before building anything. This layer captures w
 
 ## Pipeline
 
-Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into final documents. The final documents are the source of truth for this layer.
+Every layer follows the same refinement pipeline: raw inputs are gathered, synthesized into intermediate artifacts, and refined into latest documents. The latest documents are the source of truth for this layer.
 
 ```mermaid
 flowchart LR
@@ -32,7 +32,7 @@ flowchart LR
         I5[Goal Alignment Matrix]
     end
 
-    subgraph final [Final Documents]
+    subgraph latest [Latest Documents]
         F1[Business Overview]
         F2[Strategic Goals\nand Constraints]
         F3[Stakeholder Map]
@@ -40,8 +40,8 @@ flowchart LR
     end
 
     raw --> intermediate
-    intermediate --> final
-    final -->|"feeds into"| Layer1[Layer 1: Product]
+    intermediate --> latest
+    latest -->|"feeds into"| Layer1[Layer 1: Product]
 ```
 
 ### Raw Inputs
@@ -50,20 +50,20 @@ Materials gathered, not authored. See [raw-inputs/README.md](raw-inputs/README.m
 
 ### Intermediate Artifacts
 
-Synthesis products that bridge raw inputs to final documents. These are working documents — iterative, living, and potentially messy. How you get from raw inputs to final documents will vary by engagement; the `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
+Synthesis products that bridge raw inputs to latest documents. These are working documents — iterative, living, and potentially messy. How you get from raw inputs to latest documents will vary by engagement; the `intermediate/` folder contains example templates for common synthesis activities, not a required checklist.
 
 Examples include interview synthesis, business model summaries, constraint registers, competitive research compilations, and goal alignment matrices. See [intermediate/](intermediate/) for available templates.
 
-### Final Documents
+### Latest Documents
 
 Canonical, reviewed, consumable. These are the source of truth for this layer. Each carries full YAML frontmatter for cascade tracking.
 
 | Document | What It Covers |
 |---|---|
-| [Business Overview](final/business-overview.md) | Company identity, business model, customer segments, organizational structure, existing systems |
-| [Strategic Goals and Constraints](final/strategic-goals-and-constraints.md) | Business objectives, engagement drivers, constraints by type |
-| [Stakeholder Map](final/stakeholder-map.md) | People, roles, decision-making authority, influence, dynamics |
-| [Competitive Landscape](final/competitive-landscape.md) | Market position, competitors, differentiators, industry trends |
+| [Business Overview](latest/business-overview.md) | Company identity, business model, customer segments, organizational structure, existing systems |
+| [Strategic Goals and Constraints](latest/strategic-goals-and-constraints.md) | Business objectives, engagement drivers, constraints by type |
+| [Stakeholder Map](latest/stakeholder-map.md) | People, roles, decision-making authority, influence, dynamics |
+| [Competitive Landscape](latest/competitive-landscape.md) | Market position, competitors, differentiators, industry trends |
 
 ---
 
@@ -75,7 +75,7 @@ The `tools/` folder contains AI skills and process guides that accelerate produc
 
 ## Inheritance
 
-All four final documents from this layer are available as raw inputs to **Layer 1 (Product)** and can be referenced by any downstream layer that needs business context. Layer 1 documents list the relevant Layer 0 files in their `relates_to` frontmatter, which enables the cascade mechanism to track when related documents change and need review.
+All four latest documents from this layer are available as raw inputs to **Layer 1 (Product)** and can be referenced by any downstream layer that needs business context. Layer 1 documents list the relevant Layer 0 files in their `relates_to` frontmatter, which enables the cascade mechanism to track when related documents change and need review.
 
 ---
 

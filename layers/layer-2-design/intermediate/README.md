@@ -1,6 +1,6 @@
 # Intermediate Artifacts — Layer 2: Design
 
-Working documents that bridge raw inputs to final documents. These are iterative, living, and potentially messy — they exist to support synthesis, not to be polished deliverables.
+Working documents that bridge raw inputs to latest documents. These are iterative, living, and potentially messy — they exist to support synthesis, not to be polished deliverables.
 
 This folder is an **open collection**. Teams create whatever artifacts they need during the design process. The examples provided here show common patterns, but the list is not exhaustive and no specific artifact is required.
 

@@ -27,7 +27,7 @@ last_updated: ""
 
 ## Implications
 
-*What these findings mean for the engagement. How do they affect the final documents being produced?*
+*What these findings mean for the engagement. How do they affect the latest documents being produced?*
 
 ---
 

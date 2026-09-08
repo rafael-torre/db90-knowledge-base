@@ -9,7 +9,7 @@ description: 'Guided workflow to document technical decisions and architecture. 
 Document the system architecture for a project or feature. Covers structural decisions, system boundaries, technology choices, and ADRs. Prereq: Layer 1 and Layer 2 in consensus.
 
 ## Inputs
-- Layer 1 and Layer 2 final documents in consensus
+- Layer 1 and Layer 2 latest documents in consensus
 - User input on technical goals and constraints
 
 ## Outputs

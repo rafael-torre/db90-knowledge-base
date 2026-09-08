@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # update-metadata.sh (Claude wrapper)
-# Fires on PostToolUse (Edit|Write), scoped to layers/**/final/**/*.md.
+# Fires on PostToolUse (Edit|Write), scoped to layers/**/latest/**/*.md.
 # Claude delivers the tool input as JSON on stdin; this wrapper extracts
 # the file path and delegates to the shared update-metadata.sh.
 

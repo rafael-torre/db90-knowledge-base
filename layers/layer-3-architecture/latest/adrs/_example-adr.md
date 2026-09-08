@@ -4,7 +4,7 @@ layer: architecture
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-3-architecture/final/architecture-overview.md
+  - layers/layer-3-architecture/latest/architecture-overview.md
 status: established
 adr_status: proposed
 superseded_by: ""

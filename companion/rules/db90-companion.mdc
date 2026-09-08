@@ -18,7 +18,7 @@ instructions: |
   - **Layer 3 (Architecture)**: Structural decisions, system boundaries, technical reasoning — owned by Tech Lead
   - **Layer 4 (Implementation)**: Engineering guidance, development, deployment, operations — owned by Dev Team + Tech Lead
 
-  Each layer has a `draft/` folder (early thinking) and a `final/` folder (consensus).
+  Each layer has a `draft/` folder (early thinking) and a `latest/` folder (consensus).
   Documents flow downstream: Layer 0 → Layer 1 → Layer 2 → Layer 3 → Layer 4.
   Each layer can be independent; not every project needs every layer (e.g., Design is N/A for API-only projects).
 
@@ -33,10 +33,10 @@ instructions: |
   ### Guided Mode (during active work)
   - As you work on a document, the rule automatically:
     - Detects which layer you're in from the file path
-    - Loads upstream Layer N-1 finals for reference
+    - Loads upstream Layer N-1 latest documents for reference
     - Checks `relates_to` to find what documents this one depends on
     - Suggests the appropriate skill for your current task (draft, review, refine)
-    - Enforces layer sequencing (can't finalize Layer 2 before Layer 1 final is consensus)
+    - Enforces layer sequencing (can't promote Layer 2 to latest before Layer 1 latest is consensus)
 
   ### Handoff Mode (when ending or drifting)
   - When you've been working for a while or need to context-switch:
@@ -60,12 +60,12 @@ instructions: |
 
   ### Layer and Document-Specific Skills
 
-  Skills are dynamically loaded based on the file you're currently creating or editing. When you open a draft or final document, the rule will:
+  Skills are dynamically loaded based on the file you're currently creating or editing. When you open a draft or latest document, the rule will:
 
   1. **Detect the layer and document type** from the file path (e.g., `layers/layer-1-product/draft/features/...`)
   2. **Check for available skills** in `.cursor/skills/` that match that layer and document type
   3. **If a skill exists:** Load and suggest it — the skill will guide you through creating that specific document type
-  4. **If no skill exists:** Use the document template structure as a guide — each final document includes built-in guiding questions, sections, and examples to follow
+  4. **If no skill exists:** Use the document template structure as a guide — each latest document includes built-in guiding questions, sections, and examples to follow
 
   This two-tier approach ensures:
   - Specialized skills can automate and guide complex document creation when available
@@ -75,7 +75,7 @@ instructions: |
   ## Layer-Aware Context Loading
 
   Before any Layer N drafting or review, the rule automatically:
-  1. Loads the Layer N-1 final document(s) via `relates_to` links
+  1. Loads the Layer N-1 latest document(s) via `relates_to` links
   2. Surfaces key decisions and constraints from upstream
   3. Ensures you have the context needed for sound technical decisions
 
@@ -97,7 +97,7 @@ instructions: |
 
   ## Frontmatter Conventions
 
-  All final/ docs should have:
+  All latest/ docs should have:
 
   ```yaml
   ---
@@ -112,7 +112,7 @@ instructions: |
   ```
 
   The `status` field drives the cascade:
-  - When you edit a `final/` doc, the hook auto-updates `last_updated` to today
+  - When you edit a `latest/` doc, the hook auto-updates `last_updated` to today
   - The hook also cascades `status: needs_review` to each doc in `relates_to`
   - This keeps downstream work visible and prevents stale dependencies
 
@@ -128,7 +128,7 @@ instructions: |
      Use the `scan-project-state` skill to see what needs attention.
 
   3. **Start a task:**
-     Open a draft or final doc in your target layer. The rule will:
+     Open a draft or latest doc in your target layer. The rule will:
      - Load upstream context automatically
      - Suggest the right skill for this task
      - Enforce sequencing constraints
@@ -139,6 +139,6 @@ instructions: |
 customContext: |
   When providing guidance:
   - Always reference the specific layer and frontmatter status of the current document
-  - Load the upstream Layer N-1 finals if working on Layer N drafting
+  - Load the upstream Layer N-1 latest documents if working on Layer N drafting
   - Tailor your tone and focus to the user's configured role
   - If no `.companion.yaml` exists yet, offer to create it during first use

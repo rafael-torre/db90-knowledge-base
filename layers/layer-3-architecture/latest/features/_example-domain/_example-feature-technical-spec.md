@@ -4,15 +4,15 @@ layer: architecture
 owner: ""
 last_updated: ""
 relates_to:
-  - layers/layer-1-product/final/features/_example-domain/_example-feature-spec.md
-  - layers/layer-2-design/final/features/_example-domain/_example-feature-design-spec.md
-  - layers/layer-3-architecture/final/architecture-overview.md
+  - layers/layer-1-product/latest/features/_example-domain/_example-feature-spec.md
+  - layers/layer-2-design/latest/features/_example-domain/_example-feature-design-spec.md
+  - layers/layer-3-architecture/latest/architecture-overview.md
 status: in_progress
 ---
 
 # Feature Technical Spec: [Feature Name]
 
-A full-stack technical specification for a single feature. Read the [Layer 1 Feature Spec](../../../../layer-1-product/final/features/_example-domain/_example-feature-spec.md) first — it defines what this feature does, who it's for, the business rules, and the acceptance criteria. Read the [Layer 2 Feature Design Spec](../../../../layer-2-design/final/features/_example-domain/_example-feature-design-spec.md) when applicable — it defines the visual and interaction behavior.
+A full-stack technical specification for a single feature. Read the [Layer 1 Feature Spec](../../../../layer-1-product/latest/features/_example-domain/_example-feature-spec.md) first — it defines what this feature does, who it's for, the business rules, and the acceptance criteria. Read the [Layer 2 Feature Design Spec](../../../../layer-2-design/latest/features/_example-domain/_example-feature-design-spec.md) when applicable — it defines the visual and interaction behavior.
 
 This document covers how the feature will be built: the technical approach, data model changes, API contracts, frontend architecture, integration dependencies, key flows, and the complete work breakdown across all implementation surfaces. It is designed to be self-contained — an AI model or engineer should be able to implement from this spec without needing to cross-reference upstream documents for day-to-day implementation decisions.
 
@@ -33,7 +33,7 @@ This document covers how the feature will be built: the technical approach, data
 
 ## Acceptance Criteria
 
-What "done" looks like — carried forward from the [Layer 1 Feature Spec](../../../../layer-1-product/final/features/_example-domain/_example-feature-spec.md) and translated into technically verifiable assertions. Product-level criteria (what the user can do) are listed alongside technical criteria (what the system must enforce) so that implementation and testing have a single, complete definition of done.
+What "done" looks like — carried forward from the [Layer 1 Feature Spec](../../../../layer-1-product/latest/features/_example-domain/_example-feature-spec.md) and translated into technically verifiable assertions. Product-level criteria (what the user can do) are listed alongside technical criteria (what the system must enforce) so that implementation and testing have a single, complete definition of done.
 
 > **Guiding questions:**
 >
@@ -72,7 +72,7 @@ How this feature will be built. High-level enough to orient, specific enough to 
 
 ### Business Rules and Constraints
 
-Rules carried forward from the [Layer 1 Feature Spec](../../../../layer-1-product/final/features/_example-domain/_example-feature-spec.md) that directly constrain implementation. These are the rules the code must enforce — include them here so the implementing engineer or AI model does not need to cross-reference the product spec during implementation.
+Rules carried forward from the [Layer 1 Feature Spec](../../../../layer-1-product/latest/features/_example-domain/_example-feature-spec.md) that directly constrain implementation. These are the rules the code must enforce — include them here so the implementing engineer or AI model does not need to cross-reference the product spec during implementation.
 
 > **Guiding questions:**
 >
@@ -170,7 +170,7 @@ The frontend implementation plan for this feature. Includes design asset links f
 
 ### Design Assets
 
-Figma links carried forward from the [Layer 2 Feature Design Spec](../../../../layer-2-design/final/features/_example-domain/_example-feature-design-spec.md). These provide direct access to the visual designs when implementing frontend tasks — including for AI tools with Figma MCP access.
+Figma links carried forward from the [Layer 2 Feature Design Spec](../../../../layer-2-design/latest/features/_example-domain/_example-feature-design-spec.md). These provide direct access to the visual designs when implementing frontend tasks — including for AI tools with Figma MCP access.
 
 | Screen / Flow | Figma Link | Status |
 | ------------- | ---------- | ------ |

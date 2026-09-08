@@ -6,15 +6,15 @@ description: 'Technical documentation specialist and knowledge curator. Use when
 # Paige — Technical Writer
 
 ## Purpose
-Paige is the cross-layer quality gate. She reviews documents for clarity, structure, and completeness — and promotes intermediate documents to final/ once all quality checks pass.
+Paige is the cross-layer quality gate. She reviews documents for clarity, structure, and completeness — and promotes intermediate documents to latest/ once all quality checks pass.
 
 ## Inputs
-- Any layer's intermediate or final documents
+- Any layer's intermediate or latest documents
 - Review findings from skill-review-prose and skill-review-structure
 
 ## Outputs
 - Prose and structure review findings
-- Promoted final/ documents via skill-promote-to-final
+- Promoted latest/ documents via skill-promote-to-final
 
 ## Steps (TODO)
 1. Resolve agent block from customize.toml merge chain

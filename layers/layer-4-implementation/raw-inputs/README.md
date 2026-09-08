@@ -6,17 +6,17 @@ Materials gathered, not authored. Work through this checklist at the start of La
 
 ## Upstream Layer Documents
 
-The final documents from Layer 3 (Architecture) are the primary inputs to this layer. They provide the technical decisions and constraints that implementation and operations docs are written against.
+The latest documents from Layer 3 (Architecture) are the primary inputs to this layer. They provide the technical decisions and constraints that implementation and operations docs are written against.
 
 ### Layer 3: Architecture
 
 | Input | Description | Source |
 | ----- | ----------- | ------ |
-| Architecture Overview | System boundaries, container view, data architecture, security model, infrastructure overview | Layer 3 final |
-| ADRs | Architectural decisions with rationale — informs which patterns and approaches are locked in vs. open | Layer 3 final |
-| Feature Technical Specs | Full-stack technical specifications per feature — the primary reference for implementation work | Layer 3 final |
-| Non-functional Requirements | Performance, scalability, availability, security targets — informs testing strategy and monitoring thresholds | Layer 3 final |
-| Tech Stack Rationale | Technology choices and reasoning — ensures the Development Guide reflects the actual stack | Layer 3 final |
+| Architecture Overview | System boundaries, container view, data architecture, security model, infrastructure overview | Layer 3 latest |
+| ADRs | Architectural decisions with rationale — informs which patterns and approaches are locked in vs. open | Layer 3 latest |
+| Feature Technical Specs | Full-stack technical specifications per feature — the primary reference for implementation work | Layer 3 latest |
+| Non-functional Requirements | Performance, scalability, availability, security targets — informs testing strategy and monitoring thresholds | Layer 3 latest |
+| Tech Stack Rationale | Technology choices and reasoning — ensures the Development Guide reflects the actual stack | Layer 3 latest |
 
 ### Layer 2: Design
 
@@ -24,8 +24,8 @@ Include when the project has a UI component. Skip and note as N/A when Layer 2 d
 
 | Input | Description | Source |
 | ----- | ----------- | ------ |
-| Feature Design Specs | Interaction patterns, states, component behavior — informs frontend implementation conventions | Layer 2 final |
-| Design System Reference | Component library, naming conventions — informs how frontend tooling and patterns are documented | Layer 2 final |
+| Feature Design Specs | Interaction patterns, states, component behavior — informs frontend implementation conventions | Layer 2 latest |
+| Design System Reference | Component library, naming conventions — informs how frontend tooling and patterns are documented | Layer 2 latest |
 
 ---
 

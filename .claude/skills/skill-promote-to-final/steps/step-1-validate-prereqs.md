@@ -5,8 +5,8 @@
 **Actions:**
 - Read source document frontmatter
 - Identify layer from path (layers/layer-N-*/intermediate/...)
-- Load Layer N-1 final/ documents via relates_to or layer path
-- Check: at least one Layer N-1 final/ doc has status: consensus
+- Load Layer N-1 latest/ documents via relates_to or layer path
+- Check: at least one Layer N-1 latest/ doc has status: consensus
 - Check: source doc has been reviewed (look for review-findings.md alongside, or ask user)
 
 **Halt if:**

@@ -1,6 +1,6 @@
 # Intermediate Artifacts — Layer 4: Implementation & Operations
 
-Working documents that bridge raw inputs to final documents. These are iterative, living, and potentially messy — they exist to support synthesis, not to be polished deliverables.
+Working documents that bridge raw inputs to latest documents. These are iterative, living, and potentially messy — they exist to support synthesis, not to be polished deliverables.
 
 This folder is an **open collection**. Unlike earlier layers, Layer 4 synthesis is lightweight — the team discusses conventions, workflow, and operational approach, reaches agreement, and documents it directly. Working drafts can live here if that helps, but no example templates are provided and no specific artifact is required.
 

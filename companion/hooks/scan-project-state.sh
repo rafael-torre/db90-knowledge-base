@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # scan-project-state.sh
-# Fires on session start. Scans all final/ docs for frontmatter status, detects cross-layer
+# Fires on session start. Scans all latest/ docs for frontmatter status, detects cross-layer
 # dependencies, and writes a compact state summary to both .cursor/session-state.md (Cursor)
 # and .claude/session-state.md (Claude) for consumption by their respective rules.
 
@@ -36,7 +36,7 @@ IN_PROGRESS=()
 MISSING_CROSS_LAYER=()
 STALE_DOCS=()
 
-# Scan all final/ documents
+# Scan all latest/ documents
 while IFS= read -r -d '' doc; do
     # Extract frontmatter
     if [[ "$doc" =~ ^---$ ]]; then
@@ -67,7 +67,7 @@ while IFS= read -r -d '' doc; do
             fi
         fi
     fi
-done < <(find "$LAYERS_DIR" -path "*/final/*.md" -print0 2>/dev/null)
+done < <(find "$LAYERS_DIR" -path "*/latest/*.md" -print0 2>/dev/null)
 
 # Append summaries to state file
 {
