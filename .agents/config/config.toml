@@ -1,6 +1,6 @@
 
 [core]
-project_name = "vrtly-knowledge-base"
+project_name = "your-project-knowledge-base"
 document_output_language = "English"
 output_folder = "{project-root}/.agents/output"
 

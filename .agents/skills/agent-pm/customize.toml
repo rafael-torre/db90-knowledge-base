@@ -56,8 +56,8 @@ principles = [
 
 [[agent.menu]]
 code = "PRD"
-description = "Create, update, or validate a PRD — state your intent or the skill will ask"
-skill = "skill-feature-spec"
+description = "Create, edit, or review a Layer 1 product feature document — state your intent or the skill will ask"
+skill = "skill-product-feature-spec"
 
 [[agent.menu]]
 code = "CE"

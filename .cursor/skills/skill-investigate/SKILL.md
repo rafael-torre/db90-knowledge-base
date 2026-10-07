@@ -179,7 +179,7 @@ Update `{case_file}`:
 - **Reproduction Plan** when applicable, or a verification plan for exploration cases.
 - **Status:** Active / Concluded / Blocked on evidence.
 
-Present the conclusion, then a concrete next-steps menu: trivial fix → `skill-feature-spec`; scope/plan adjustment →
+Present the conclusion, then a concrete next-steps menu: trivial fix → `skill-product-feature-spec` (product) or `skill-technical-spec` (technical); scope/plan adjustment →
 `skill-correct-course`; tracked story → `skill-generate-tickets`; fresh review → `skill-review-adversarial`. Recommend the
 highest-value action. Mitigations and workarounds are generated only on explicit request — investigation stops at the
 diagnosis. Execute `{workflow.on_complete}` if non-empty. Pause for user with the recap above; wait for direction.

@@ -23,7 +23,7 @@ The default invocation is headless: input goes in, JSON comes out. The contract 
 {
   "status": "blocked",
   "error_code": "insufficient_intent",
-  "reason": "Input was a one-line idea with no surrounding context; too thin to distill. Suggest skill-feature-spec to draw the vision out first."
+  "reason": "Input was a one-line idea with no surrounding context; too thin to distill. Suggest skill-product-feature-spec to draw the vision out first."
 }
 ```
 

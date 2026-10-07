@@ -4,3 +4,40 @@
 
 name: "Your Name"
 role: tech-lead  # pm | designer | tech-lead | developer | engagement-lead | other
+
+# Used by skill-generate-tickets to create and place tickets.
+board:
+  type: github-projects
+  org: your-github-org
+  project_number: 1
+  repos:  # Layer → GitHub repo (org/name) where that Layer's tickets are filed
+    Backend: your-github-org/your-backend-repo
+    Frontend: your-github-org/your-frontend-repo
+    # Infrastructure: if there is no dedicated repo, infra tickets go in the owning repo, labeled type:infra
+  labels:
+    - type:infra   # operating infra: CI/CD pipeline, provisioning, config, running migrations as part of deploy — verified via pipeline/deploy checks (pipeline runs green, deployed system reflects the change), not unit tests
+    - type:api     # backend contract — verified via integration test
+    - type:ui      # frontend/mobile — verified via component/E2E test
+    - type:logic   # business logic incl. authoring migration files (schema design), no external contract — verified via unit tests
+    - type:qa      # closing feature ticket — verified via manual test steps against the assembled feature
+
+# Used by skill-technical-spec-enrich (Phase 2 of the technical spec pipeline) to fan out
+# one read-only subagent per repo. Paths are local checkouts, not GitHub slugs — distinct
+# from board.repos above. `owns` lists which Feature Technical Spec sections that repo grounds:
+# data_model | api_contracts | frontend_architecture | integration_points.
+# Optional `domains` limits a repo to specs under those Layer 3 feature folders.
+technical_spec:
+  repos:
+    Backend:
+      path: ../your-backend-repo
+      owns: [data_model, api_contracts, integration_points]
+    Frontend:
+      path: ../your-frontend-repo
+      owns: [frontend_architecture]
+    # Mobile:
+    #   path: ../your-mobile-repo
+    #   owns: [frontend_architecture]
+    #   domains: [mobile_app]
+  # Optional: alias → real feature-folder name under layers/layer-3-architecture/latest/features/
+  # domain_aliases:
+  #   mobile_app: your-mobile-feature-folder

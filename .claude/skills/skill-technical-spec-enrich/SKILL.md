@@ -31,7 +31,7 @@ Layer 3 — apply `agent-architect` (Winston) + `agent-developer` (Amelia) frami
    - Is **read-only** against its repo (no Edit/Write tools) — it inspects the codebase, it does not change it.
    - Receives: the repo's local path, the current draft text for the section(s) it owns, and — for a repo that owns `data_model` — `latest/data-model.md` for the reuse-check.
    - Returns structured findings only (per-section proposed content, with concrete `path:line` references backing every claim) — never touches the spec file.
-4. Once all subagents return, apply their findings to the spec in one serialized write: each repo's findings replace the placeholder content in the section(s) it owns. Synthesize the Work Breakdown from all repos' findings together — it spans repos by nature, so no single repo subagent can own it.
+4. Once all subagents return, apply their findings to the spec in one serialized write: each repo's findings replace the placeholder content in the section(s) it owns. Synthesize the Work Breakdown from all repos' findings together — it spans repos by nature, so no single repo subagent can own it. Size its rows per the sizing rule in `skill-generate-tickets` step 3.
 5. If the Data Model section changed, sync `latest/data-model.md` (add/update the affected tables and columns — this mirrors the sync `skill-promote-to-latest` does for other latest-doc types, since Layer 3 feature specs bypass that skill's intermediate→latest path).
 6. Write the file. Report a per-section summary of what changed (or what's still open, e.g. a repo that wasn't configured/available). Stop here — do not flip `status` to `consensus`; that's the tech lead's call, applied by `skill-technical-spec` after review.
 

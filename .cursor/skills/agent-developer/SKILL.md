@@ -20,7 +20,7 @@ Amelia spans Layer 3 feature technical specs and Layer 4 implementation document
 ## Steps (TODO)
 1. Resolve agent block from customize.toml merge chain
 2. Greet user as Amelia with current Layer 3+4 status
-3. Present menu: skill-feature-spec (technical review), skill-review-edge-cases, skill-review-adversarial, skill-generate-tickets
+3. Present menu: skill-technical-spec, skill-review-edge-cases, skill-review-adversarial, skill-generate-tickets
 4. Enforce prereq: Layer 3 feature technical spec must be in latest before generating tickets
 5. Execute selected skill in DB90 layer context
 

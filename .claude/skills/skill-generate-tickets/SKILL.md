@@ -25,7 +25,7 @@ This is Layer 3 technical decomposition — apply the `agent-architect` (Winston
 
 - A reviewed, possibly revised Work Breakdown table (see Step 2 — the existing table is a draft, not a given), ending in one closing feature ticket row
 - Ticket definitions, reviewed by the user before anything is created
-- Tickets created on the configured GitHub Project, filed in the correct repo, labeled — the dev tickets linked as native GitHub sub-issues of the closing feature ticket
+- Tickets created on the configured GitHub Project, filed in the correct repo, labeled, and assigned to the person running this skill — the dev tickets linked as native GitHub sub-issues of the closing feature ticket
 - Work Breakdown `Reference` column populated with ticket URLs — this table is the single list of tickets for the feature; nothing duplicates it on the GitHub side
 
 ## Steps
@@ -35,7 +35,10 @@ This is Layer 3 technical decomposition — apply the `agent-architect` (Winston
 2. **Load full context, not just the table.** Read Technical Approach, Data Model, API Contracts, Frontend Architecture, Integration Points, Key Flows, Business Rules and Constraints, Technical Constraints and Risks, and Testing Approach. The Work Breakdown table can't be assessed against itself. Also check any `relates_to`-linked sibling spec that defines an overlapping field or table — a field that looks unspecified in this spec may already be resolved there, or by a precedent the sibling spec already established for the same kind of data.
 
 3. **Assess the existing Work Breakdown — don't just execute it.** For each row, check:
-   - True atomicity: one deliverable, one repo, completable in a single focused session.
+   - Sized for one AI coding session: one repo, one coherent deliverable with its own observable pass/fail. Target unit: one backend resource end to end (entity + migration + permissions + module/endpoints + tests), or one frontend slice (API module + hook + component + component tests + its E2E).
+     - Too big: spans two independent resources/modules, or needs context from more than one area of the codebase → split along that seam.
+     - Too small: no observable outcome on its own (a permissions file, a single-resource migration, a standalone E2E suite, a cleanup touching the same file as another row) → merge into the ticket that consumes or owns it.
+     - Separate schema/infra tickets only when the table/config is shared by several consumer tickets or is operating infra (`type:infra`).
    - Correct repo/Layer assignment against `board.repos`.
    - Correct `Depends On` order against the *actual* technical dependencies in the spec (schema before the logic that reads it, API contract before its frontend/mobile consumer).
    - Completeness: infra, config, or migration tasks implied elsewhere in the spec but missing from the table.
@@ -47,8 +50,8 @@ This is Layer 3 technical decomposition — apply the `agent-architect` (Winston
 4. **Draft ticket content per approved dev task**, following `ticket-template.md`'s structure and its inline-vs-link and Out of Scope rules. Verification scoped to what's actually observable at that task:
    - `type:infra` → operating infra: CI/CD pipeline steps, provisioning, config, running a migration as part of a deploy — verified via pipeline/deploy checks.
    - `type:logic` → business logic, including authoring migration files (schema design) — verified via unit tests (migration applies/rolls back, schema matches spec); add an integration test only if this is the first code path to touch something added by an earlier `type:infra`/schema task.
-   - `type:api` → integration test against the endpoint.
-   - `type:ui` → component test + E2E covering the user-observable behavior; name which earlier task(s) it's exercising.
+   - `type:api` → integration test against the endpoint; when the ticket also owns its resource's migration and permissions, add the schema test and seed/permission unit test to the same Verification.
+   - `type:ui` → component test + E2E covering the user-observable behavior, in the same ticket; name which earlier task(s) it's exercising. No standalone E2E ticket unless the flow spans several tickets' features.
 
    **Never fill a gap with a plausible-sounding assumption — but check it's a real gap before escalating it.** "The spec doesn't state this" and "no one has decided this yet" are not the same claim. Before treating something as missing, check whether it's already resolved in a raw-input artifact (open the actual file) or by a sibling spec covering the same field/table. Only what's genuinely absent everywhere becomes a gap. Engineering-resolvable gaps become an open question tied to the ticket, asked before creating it. Gaps only a non-engineering party can resolve (product/compliance/data sign-off, a spec not yet written) go under `Blocked By:` instead — build against a mocked/injectable seam and track the real resolution as its own ticket, rather than stalling ticket creation on it.
 
@@ -56,7 +59,7 @@ This is Layer 3 technical decomposition — apply the `agent-architect` (Winston
 
 6. **User review.** Show every draft ticket, dev and feature, with resolved answers folded in, before creating anything on the board.
 
-7. **Create on the board.** For each approved dev ticket: `gh issue create` in the repo from `board.repos`, apply its labels, add it to the Project (`board.project_number`). Then create the feature ticket the same way, and link each dev ticket as its native GitHub sub-issue (`gh issue edit <feature ticket> --add-sub-issue <dev ticket>` per dev ticket, same repo).
+7. **Create on the board.** For each approved dev ticket: `gh issue create` in the repo from `board.repos`, apply its labels, assign it to the person running this skill (`--assignee @me`), add it to the Project (`board.project_number`). Then create the feature ticket the same way, also `--assignee @me`, and link each dev ticket as its native GitHub sub-issue (`gh issue edit <feature ticket> --add-sub-issue <dev ticket>` per dev ticket, same repo).
 
 8. **Write back.** Populate the Work Breakdown's `Reference` column with each ticket's URL, including a final row for the feature ticket. Its `Task` cell is the bare feature name, exactly matching the ticket title — no "(closing ticket)"/"(QA)" suffix; the row's position and Reference already make what it is obvious. Resolve any `Depends On` entries that were task names into real cross-repo issue references now that IDs exist.
 

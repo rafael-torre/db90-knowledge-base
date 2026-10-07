@@ -116,6 +116,15 @@ instructions: |
   - The hook also cascades `status: needs_review` to each doc in `relates_to`
   - This keeps downstream work visible and prevents stale dependencies
 
+  ## Latest Document Style
+
+  `latest/` documents (including ADRs under `latest/adrs/`) must read as a clean, current-state description of the system/product — never as a changelog or session log:
+
+  - Do not wrap new or changed content in dated callouts like "> ⚠️ Added this session:". Integrate the content directly into the prose, in the same voice as the rest of the document, as if it had always been there.
+  - This applies even inside ADRs: an ADR's permanence *is* its decision history (plus git history and `last_updated`). Its `Context`/`Decision` body should still read as one coherent account of the decision, not a narrated log of edits to the ADR itself.
+  - Unresolved or evolving decisions belong in the Open Questions table (or equivalent) or in `adr_status: proposed` / inline ⚠️ markers — not in prose narrating what changed and when.
+  - Git history and `last_updated` are the record of *when* something changed; the document body is the record of *what is true now*.
+
   ## Quick Start
 
   1. **First session?** Run:

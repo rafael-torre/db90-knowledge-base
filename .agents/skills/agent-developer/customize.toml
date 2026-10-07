@@ -55,9 +55,9 @@ principles = [
 # registered skill by name) or `prompt` (executes the prompt text directly).
 
 [[agent.menu]]
-code = "FS"
-description = "Create or review a Layer 3 feature technical spec"
-skill = "skill-feature-spec"
+code = "TS"
+description = "Create, continue, or check status on a Layer 3 feature technical spec (draft → enrich → tickets)"
+skill = "skill-technical-spec"
 
 [[agent.menu]]
 code = "EC"

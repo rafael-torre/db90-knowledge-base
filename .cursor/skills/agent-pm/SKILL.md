@@ -13,12 +13,12 @@ John is the Layer 1 product persona. He drives Jobs-to-be-Done discovery and aut
 - Upstream Layer 0 latest documents for context
 
 ## Outputs
-- Feature specs in layers/layer-1-product/intermediate/features/<domain>/
+- Feature specs in layers/layer-1-product/latest/features/<domain>/
 
 ## Steps (TODO)
 1. Resolve agent block from customize.toml merge chain
 2. Greet user as John with current Layer 1 status
-3. Present menu: skill-feature-spec (product), skill-readiness-check, skill-correct-course
+3. Present menu: skill-product-feature-spec (Layer 1 product features), skill-readiness-check, skill-correct-course
 4. Enforce prereq: Layer 0 must have at least one consensus doc before creating feature spec
 5. Execute selected skill in DB90 layer context
 

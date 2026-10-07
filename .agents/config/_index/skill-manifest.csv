@@ -21,7 +21,7 @@ skill-research-market,skill-research-market,Conduct market research on competiti
 skill-research-domain,skill-research-domain,Conduct domain and industry research.,db90,.agents/skills/skill-research-domain/SKILL.md
 skill-research-technical,skill-research-technical,Conduct technical research on technologies and architecture.,db90,.agents/skills/skill-research-technical/SKILL.md
 skill-product-brief,skill-product-brief,Create, update, or validate a product brief.,db90,.agents/skills/skill-product-brief/SKILL.md
-skill-feature-spec,skill-feature-spec,Create, update, or validate a feature spec (product or technical PRD).,db90,.agents/skills/skill-feature-spec/SKILL.md
+skill-product-feature-spec,skill-product-feature-spec,Create, edit, or review a Layer 1 (product) feature document against the finalized documentation standard.,db90,.agents/skills/skill-product-feature-spec/SKILL.md
 skill-ux-spec,skill-ux-spec,Plan UX patterns and design specifications.,db90,.agents/skills/skill-ux-spec/SKILL.md
 skill-create-architecture,skill-create-architecture,Guided workflow to document technical decisions.,db90,.agents/skills/skill-create-architecture/SKILL.md
 skill-readiness-check,skill-readiness-check,Validate product spec, UX, Architecture are complete and aligned.,db90,.agents/skills/skill-readiness-check/SKILL.md
@@ -31,5 +31,8 @@ skill-prfaq,skill-prfaq,Working Backwards PRFAQ challenge to forge product conce
 skill-document-project,skill-document-project,Document brownfield projects for AI context.,db90,.agents/skills/skill-document-project/SKILL.md
 skill-generate-context,skill-generate-context,Generate project context document for AI consumption.,db90,.agents/skills/skill-generate-context/SKILL.md
 skill-promote-to-latest,skill-promote-to-latest,Validate and promote an intermediate document to the corresponding latest/ path with correct frontmatter and metadata cascade.,db90,.agents/skills/skill-promote-to-latest/SKILL.md
+skill-technical-spec,skill-technical-spec,Single entry point for a Layer 3 feature technical spec: detects the current phase from frontmatter status and runs draft, codebase enrichment, or ticket creation with review gates between each.,db90,.agents/skills/skill-technical-spec/SKILL.md
+skill-technical-spec-draft,skill-technical-spec-draft,Draft a Layer 3 Feature Technical Spec from upstream documentation only, no codebase access.,db90,.agents/skills/skill-technical-spec-draft/SKILL.md
+skill-technical-spec-enrich,skill-technical-spec-enrich,Enrich an in-progress Layer 3 Feature Technical Spec with real codebase details, one read-only subagent per configured repo.,db90,.agents/skills/skill-technical-spec-enrich/SKILL.md
 skill-generate-tickets,skill-generate-tickets,Generate tickets from a Layer 3 feature technical spec and create them on the configured board.,db90,.agents/skills/skill-generate-tickets/SKILL.md
 skill-mermaid-diagram,skill-mermaid-diagram,Create readable Mermaid architecture diagrams split into focused views based on system complexity.,db90,.agents/skills/skill-mermaid-diagram/SKILL.md

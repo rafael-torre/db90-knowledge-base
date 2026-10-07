@@ -27,7 +27,7 @@ Layer 3 — apply `agent-architect` (Winston) + `agent-developer` (Amelia) frami
 1. Validate the Layer 1 prerequisite. If it isn't `status: consensus`, stop and report what's blocking — don't draft.
 2. Load upstream context: Layer 1 spec, Layer 2 spec (if present), Architecture Overview, current `data-model.md`.
 3. Determine which template sections apply per `latest/features/README.md`'s skip rules (e.g. no Frontend Architecture for a backend-only feature) — mark skipped sections per that convention rather than leaving them blank.
-4. Draft each applicable section: Overview, Acceptance Criteria, Technical Approach, Data Model (checked against `data-model.md` for reuse), API Contracts (shape/verbs, not necessarily final routes), Frontend Architecture (decisions, not real component paths), Integration Points, Key Flows, Technical Constraints and Risks, Testing Approach, a rough Work Breakdown.
+4. Draft each applicable section: Overview, Acceptance Criteria, Technical Approach, Data Model (checked against `data-model.md` for reuse), API Contracts (shape/verbs, not necessarily final routes), Frontend Architecture (decisions, not real component paths), Integration Points, Key Flows, Technical Constraints and Risks, Testing Approach, a rough Work Breakdown. Size Work Breakdown rows per the sizing rule in `skill-generate-tickets` step 3 (one AI coding session per row; no standalone permissions, single-resource migration or E2E rows).
 5. Write the file with `status: in_progress` and the `relates_to` links above.
 6. Report a short summary: what's drafted, which sections are placeholders awaiting Phase 2, and any open questions for the tech lead. Stop here — do not proceed to enrichment.
 

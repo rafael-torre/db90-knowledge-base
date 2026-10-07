@@ -35,10 +35,25 @@ fi
 
 # Extract relates_to field and cascade needs_review to downstream docs
 if grep -q "^relates_to:" "$EDITED_FILE"; then
-    relates_to=$(grep "^relates_to:" "$EDITED_FILE" | head -1 | cut -d: -f2- | xargs)
+    # relates_to may be inline (relates_to: a, b) or block-list YAML:
+    #   relates_to:
+    #     - a
+    #     - b
+    same_line=$(grep "^relates_to:" "$EDITED_FILE" | head -1 | cut -d: -f2- | xargs)
 
-    # Parse relates_to (space or comma-separated paths)
+    if [[ -n "$same_line" ]]; then
+        relates_to="$same_line"
+    else
+        relates_to=$(awk '
+            /^relates_to:[[:space:]]*$/ { in_block=1; next }
+            in_block && /^[[:space:]]*-[[:space:]]+/ { sub(/^[[:space:]]*-[[:space:]]+/, ""); print; next }
+            in_block { exit }
+        ' "$EDITED_FILE")
+    fi
+
+    # Parse relates_to (space, comma, or newline-separated paths)
     for related_path in $relates_to; do
+        related_path="${related_path%,}"
         # Resolve path relative to repo root
         if [[ ! "$related_path" =~ ^/ ]]; then
             related_path="${REPO_ROOT}/${related_path}"
